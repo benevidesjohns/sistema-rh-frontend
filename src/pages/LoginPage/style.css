@@ -1,0 +1,98 @@
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 80vh;
+}
+
+#login .form {
+  background-color: white;
+
+  width: 100%;
+  max-width: 480px;
+  padding: 50px 30px;
+
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+#login .actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 30px;
+}
+
+#login .field {
+  padding-bottom: 15px;
+}
+
+#login .field label {
+  display: block;
+}
+
+#login .field input {
+  width: 100%;
+
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+
+  border: 0.5px solid #cfe0db;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  color: #10B981;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 87px;
+}
+
+/*
+.button-login {
+  background: none;
+	color: white;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+
+  width: 430px;
+  height: 40px;
+
+  background: #065F46;
+  border-radius: 10px;
+}
+
+.area-options {
+  display: flex;
+  justify-content: space-between;
+
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+
+  background: none;
+	color: inherit;
+}
+
+.area-options p:hover {
+  color: #039b70;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+} */
