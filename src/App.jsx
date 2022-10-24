@@ -1,10 +1,10 @@
 import React from 'react';
-import LoginPage from './pages/LoginPage';
+import AppRoutes from './AppRoutes';
 
 function App() {
   return (
-    <div id="login">
-      <LoginPage />
+    <div>
+      <AppRoutes />
     </div>
   );
 }
