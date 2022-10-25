@@ -1,0 +1,8 @@
+.header-dashboard {
+  padding-top: 10px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
