@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
+import { IoLogoFacebook, IoLogoGoogle } from 'react-icons/io';
+
 import { AuthContext } from '../../contexts/auth';
 
 const Button = () => {
@@ -20,8 +22,8 @@ const AreaInput = ({ value, setInput, nameLabel, typeInput }) => {
       <label htmlFor={typeInput}>{nameLabel}</label>
       <input
         type={typeInput}
-        name={typeInput}
         id={typeInput}
+        name={typeInput}
         value={value}
         onChange={setInput}
       />
@@ -35,6 +37,30 @@ AreaInput.propTypes = {
   nameLabel: PropTypes.string.isRequired,
   typeInput: PropTypes.string.isRequired,
 };
+
+const AltLogin = () => {
+  return (
+    <>
+      <div className="forgot-password">
+        <a href="">Esqueci minha senha</a>
+      </div>
+
+      <Button />
+
+      <div className="line"></div>
+
+      <div className="title-alt-login">
+        <p>Ou entre com</p>
+      </div>
+      <div className="alt-login">
+
+        <div className="google"><IoLogoGoogle /></div>
+        <div className="facebook"><IoLogoFacebook /></div>
+      </div>
+    </>
+
+  );
+}
 
 const AreaLogin = () => {
   const { authenticated, login } = useContext(AuthContext);
@@ -60,7 +86,10 @@ const AreaLogin = () => {
     <form onSubmit={submit} className="form">
       <AreaInput value={email} setInput={setInputEmail} nameLabel="Email" typeInput="email" />
       <AreaInput value={password} setInput={setInputPassword} nameLabel="Senha" typeInput="password" />
-      <Button />
+
+
+
+      <AltLogin />
     </form>
   );
 }
