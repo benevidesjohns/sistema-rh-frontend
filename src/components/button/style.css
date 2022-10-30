@@ -1,0 +1,21 @@
+.button {
+  color: white;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+
+  width: 225px;
+  height: 5ch;
+
+  background: #229e75;
+  border-radius: 10px;
+}
+
+.button:active {
+  background: #649b89;
+}
+
+#login .actions {
+  margin-top: 10px;
+}

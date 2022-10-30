@@ -5,7 +5,8 @@ html {
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -15,13 +16,24 @@ body {
 
   background-color: white;
 
-  margin: 0;
-  padding: 0;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .loading {
   text-align: center;
+}
+
+.line-width {
+  margin-top: 25px;
+  width: 100%;
+  border-top: 1px solid rgb(211, 209, 209);
+}
+
+.line-height {
+  background-color: blue;
+
+  margin: 0 100px;
+  height: 450px;
+  border-right: 1px solid rgb(211, 209, 209);
 }

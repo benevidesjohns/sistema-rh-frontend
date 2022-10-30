@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Button from '../../components/button'
 import "./style.css";
 
 import { AuthContext } from '../../contexts/auth'
@@ -13,9 +14,7 @@ const DashboardPage = () => {
   return (
     <div className='header-dashboard'>
       Dashboard
-      <button onClick={handleLogout}>
-        Sair
-      </button>
+      <Button nameButton='Sair' event={handleLogout} />
     </div>
   );
 };

@@ -1,16 +1,37 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-#login {
+.page {
+  width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
 
-  min-height: 90vh;
+.title {
+  color: #229e75;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 700px;
+  font-size: 64px;
+  padding-top: 50px;
+}
+
+
+#login {
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
 }
 
 #login .form {
@@ -30,32 +51,18 @@
   box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
 }
 
-.line {
-  display: flex;
-  margin-top: 25px;
-  width: 100%;
-  border-top: 1px solid rgb(211, 209, 209);
-}
-
-.alt-login div {
-  width: 40%;
-  height: 100%;
-
-  background-color: #229e75;
-
-  border-radius: 0.25em;
-  cursor: pointer;
-
-}
-
-#login .actions {
-  margin-top: 20px;
+.forgot-password {
+  padding-bottom: 20px;
 }
 
 .forgot-password a {
   text-align: start;
   text-decoration: none;
   color: #10B981;
+}
+
+.forgot-password a:active {
+  color: #649b89;
 }
 
 .forgot-password a:hover {
@@ -66,6 +73,20 @@
   padding-top: 20px;
 }
 
+.alt-login div {
+  width: 40%;
+  height: 50px;
+
+  background-color: #229e75;
+
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.alt-login div:active {
+  background: #649b89;
+}
+
 .alt-login {
   display: flex;
   flex-direction: row;
@@ -73,62 +94,17 @@
   justify-content: space-evenly;
   color: white;
 
-  width: 90%;
-
-  font-size: 30px;
+  width: 110%;
+  font-size: 50px;
   padding-top: 20px;
-  text-align: center;
 }
 
-#login .field {
-  padding-bottom: 15px;
-}
-
-#login .field label {
-  display: block;
-}
-
-input:focus {
-  outline-color: #97c7b7;
-}
-
-#login .field input {
-  width: 15em;
-  font-size: 100%;
-
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-
-  text-align: center;
-  border: 1px solid #97c7b7;
-  border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
-}
-
-.title {
-  color: #229e75;
-
+.google {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-
-  padding-bottom: 5vh;
-
-  font-weight: 700;
-  font-size: 64px;
 }
 
-.button-login {
-  color: white;
-  border: none;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-
-  width: 200px;
-  height: 5ch;
-
-  background: #229e75;
-  border-radius: 10px;
+.facebook {
+  display: flex;
+  justify-content: center;
 }

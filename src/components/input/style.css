@@ -1,0 +1,24 @@
+#login .field {
+  padding-bottom: 15px;
+}
+
+#login .field label {
+  display: block;
+}
+
+input:focus {
+  outline-color: #97c7b7;
+}
+
+#login .field input {
+  width: 275px;
+  height: 30px;
+  font-size: 100%;
+
+  margin-bottom: 10px;
+
+  text-align: center;
+  border: 1px solid #97c7b7;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}

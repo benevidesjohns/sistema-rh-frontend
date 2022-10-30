@@ -1,5 +1,4 @@
-import React, { useState, useContext } from 'react';
-import './styles/global.css'
+import React, { useContext } from 'react';
 
 import {
   BrowserRouter as Router,
