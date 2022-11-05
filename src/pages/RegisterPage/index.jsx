@@ -2,36 +2,12 @@ import React, { useState, useContext } from 'react';
 import Button from '../../components/button';
 import Input from '../../components/input';
 import AreaLogo from '../../components/area-logo';
-import './login.css';
+import './register.css';
 import '../../styles/global.css';
 
 import { useNavigate } from 'react-router-dom';
 
-import { IoLogoFacebook, IoLogoGoogle } from 'react-icons/io';
-
-import { AuthContext } from '../../contexts/auth';
-
-const AltLogin = () => {
-  return (
-    <>
-      <div className="line-width"></div>
-
-      <div className="title-alt-login">
-        <p>Ou entre com</p>
-      </div>
-
-      <div className="alt-login">
-        <div className="google"><IoLogoGoogle /></div>
-
-        <div className="facebook"><IoLogoFacebook /></div>
-      </div>
-    </>
-  );
-}
-
-const AreaLogin = () => {
-  const { authenticated, login } = useContext(AuthContext);
-
+const AreaRegister = () => {
   // useState to email and password
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -46,7 +22,7 @@ const AreaLogin = () => {
     e.preventDefault();
 
     // integration with my context
-    login(email, password);
+
     console.log('login', { email, password });
   }
 
@@ -55,34 +31,30 @@ const AreaLogin = () => {
       <form onSubmit={submit} className="form">
         <Input value={email} setInput={setInputEmail} nameLabel="Email" typeInput="email" />
 
+        <Input value={email} setInput={setInputEmail} nameLabel="Confirme o email" typeInput="confirmEmail" />
+
         <Input value={password} setInput={setInputPassword} nameLabel="Senha" typeInput="password" />
-
-        <div className="forgot-password">
-          <a href="">Esqueci minha senha</a>
-        </div>
-
-        <Button nameButton='Entrar' />
-
+        <Button nameButton='Cadastrar' />
       </form>
-      <Button nameButton='Cadastre-se' event={() => navigate('/register')} />
-      {/* <AltLogin /> */}
+
+      <Button nameButton='Voltar' event={() => navigate('/login')} />
     </div>
   );
 }
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
-    <div className="page">
-      <h1 className="title">Login</h1>
-
+    <>
+      <h1 className="title">Cadastre-se</h1>
       <div className="auth-area">
         <AreaLogo />
+
         <div className="line-height"></div>
 
-        <AreaLogin />
+        <AreaRegister />
       </div>
-    </div>
+    </>
   );
 }
 
-export default LoginPage;
+export default RegisterPage;

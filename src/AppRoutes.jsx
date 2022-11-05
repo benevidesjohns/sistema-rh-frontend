@@ -9,6 +9,7 @@ import {
 
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
+import RegisterPage from "./pages/RegisterPage";
 
 import { AuthProvider, AuthContext } from './contexts/auth';
 
@@ -24,7 +25,7 @@ const AppRoutes = () => {
 
     if (!authenticated) {
       console.log('not authenticated');
-      return <Navigate to='/' />
+      return <Navigate to='/login' />
     }
 
     console.log('authenticated: ', String(authenticated));
@@ -35,7 +36,8 @@ const AppRoutes = () => {
     <Router>
       <AuthProvider>
         <Routes>
-          <Route exact path="/" element={<LoginPage />} />
+          <Route exact path="/login" element={<LoginPage />} />
+          <Route exact path="/register" element={<RegisterPage />} />
           <Route exact path="/dashboard" element={<Private><DashboardPage /></Private>} />
         </Routes>
       </AuthProvider>

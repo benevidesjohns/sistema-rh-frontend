@@ -1,8 +1,8 @@
-#login .field {
+.field {
   padding-bottom: 15px;
 }
 
-#login .field label {
+.field label {
   display: block;
 }
 
@@ -10,7 +10,7 @@ input:focus {
   outline-color: #97c7b7;
 }
 
-#login .field input {
+.field input {
   width: 275px;
   height: 30px;
   font-size: 100%;

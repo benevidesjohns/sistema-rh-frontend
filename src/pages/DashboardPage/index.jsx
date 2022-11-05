@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Button from '../../components/button'
-import "./style.css";
+import "./dashboard.css";
 
 import { AuthContext } from '../../contexts/auth'
 
