@@ -3,7 +3,6 @@ import Button from '../../components/button';
 import Input from '../../components/input';
 import AreaLogo from '../../components/area-logo';
 import "./styles.css";
-import '../../styles/global.css';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -50,10 +49,10 @@ const AreaLogin = () => {
 const LoginPage = () => {
   return (
     <section>
-      <h1 className="title">Login</h1>
+      <h1 className="auth-title">Login</h1>
       <div className="auth-area">
         <AreaLogo />
-        <div className="separator"></div>
+        <div className="vertical-separator"></div>
         <AreaLogin />
       </div>
     </section>

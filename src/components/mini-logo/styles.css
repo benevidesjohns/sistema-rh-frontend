@@ -1,0 +1,17 @@
+.mini-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.mini-logo .title {
+  color: #229e75;
+  font-weight: 700px;
+  font-size: 24px;
+  padding: 0 0 0 5px;
+}
+
+.mini-logo img {
+  width: 40px;
+}

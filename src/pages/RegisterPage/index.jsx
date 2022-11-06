@@ -3,7 +3,6 @@ import Button from '../../components/button';
 import Input from '../../components/input';
 import AreaLogo from '../../components/area-logo';
 import "./styles.css";
-import '../../styles/global.css';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -44,10 +43,10 @@ const AreaRegister = () => {
 const RegisterPage = () => {
   return (
     <section>
-      <h1 className="title">Cadastre-se</h1>
+      <h1 className="auth-title">Cadastre-se</h1>
       <div className="auth-area">
         <AreaLogo />
-        <div className="separator"></div>
+        <div className="vertical-separator"></div>
         <AreaRegister />
       </div>
     </section>

@@ -1,0 +1,55 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 24px;
+  gap: 15px;
+}
+
+.sidebar-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #64748B;
+  margin: 0;
+}
+
+.sidebar-options {
+  list-style: none;
+}
+
+.sidebar-item {
+  padding: 5px;
+  background-color: rgb(216, 221, 228);
+  border-radius: 0.3em;
+  box-shadow: 5px rgba(0, 0, 0, 0.25);
+  margin: 5px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile img {
+  border-radius: 50%;
+  width: 40px;
+}
+
+.profile-info {
+  padding-left: 10px;
+}
+
+.profile-info h3 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #191D23;
+}
+
+.profile-info p {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #A0ABBB;
+}
