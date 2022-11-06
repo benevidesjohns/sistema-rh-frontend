@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-const Input = ({ value, setInput, nameLabel, typeInput }) => {
+const Input = ({ value, onChange, label, typeInput }) => {
   return (
     <div className="field">
 
       {
-        nameLabel ? <label htmlFor={typeInput}>{nameLabel}</label> : ''
+        label ? <label htmlFor={typeInput}>{label}</label> : ''
       }
 
       <input
@@ -15,7 +15,7 @@ const Input = ({ value, setInput, nameLabel, typeInput }) => {
         id={typeInput}
         name={typeInput}
         value={value}
-        onChange={setInput}
+        onChange={onChange}
       />
     </div>
   );
@@ -23,8 +23,8 @@ const Input = ({ value, setInput, nameLabel, typeInput }) => {
 
 Input.propTypes = {
   value: PropTypes.string.isRequired,
-  setInput: PropTypes.func.isRequired,
-  nameLabel: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  label: PropTypes.string,
   typeInput: PropTypes.string.isRequired,
 };
 

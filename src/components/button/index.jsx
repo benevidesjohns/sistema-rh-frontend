@@ -2,18 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-const Button = ({ nameButton, event }) => {
+const Button = ({ label, event }) => {
   return (
     <div className="actions">
       <button className="button" type="submit" onClick={event}>
-        {nameButton}
+        {label}
       </button>
     </div>
   );
 }
 
 Button.propTypes = {
-  nameButton: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   event: PropTypes.func
 };
 

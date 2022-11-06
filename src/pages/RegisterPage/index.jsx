@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import Button from '../../components/button';
 import Input from '../../components/input';
 import AreaLogo from '../../components/area-logo';
-import './register.css';
+import "./styles.css";
 import '../../styles/global.css';
 
 import { useNavigate } from 'react-router-dom';
@@ -14,8 +14,8 @@ const AreaRegister = () => {
   const navigate = useNavigate();
 
   // functions to be added in onChange of the input
-  const setInputEmail = (e) => setEmail(e.target.value);
-  const setInputPassword = (e) => setPassword(e.target.value);
+  const setInputEmail = (email) => setEmail(email.target.value);
+  const setInputPassword = (password) => setPassword(password.target.value);
 
   // function to submit event button
   const submit = (e) => {
@@ -29,31 +29,28 @@ const AreaRegister = () => {
   return (
     <div className="area-form">
       <form onSubmit={submit} className="form">
-        <Input value={email} setInput={setInputEmail} nameLabel="Email" typeInput="email" />
+        <Input value={email} onChange={setInputEmail} label="Email" typeInput="email" />
+        <Input value={email} onChange={setInputEmail} label="Confirme o email" typeInput="confirmEmail" />
+        <Input value={password} onChange={setInputPassword} label="Senha" typeInput="password" />
 
-        <Input value={email} setInput={setInputEmail} nameLabel="Confirme o email" typeInput="confirmEmail" />
-
-        <Input value={password} setInput={setInputPassword} nameLabel="Senha" typeInput="password" />
-        <Button nameButton='Cadastrar' />
+        <Button label='Cadastrar' />
       </form>
 
-      <Button nameButton='Voltar' event={() => navigate('/login')} />
+      <Button label='Voltar' event={() => navigate('/login')} />
     </div>
   );
 }
 
 const RegisterPage = () => {
   return (
-    <>
+    <section>
       <h1 className="title">Cadastre-se</h1>
       <div className="auth-area">
         <AreaLogo />
-
-        <div className="line-height"></div>
-
+        <div className="separator"></div>
         <AreaRegister />
       </div>
-    </>
+    </section>
   );
 }
 

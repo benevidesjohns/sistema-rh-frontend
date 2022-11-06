@@ -24,14 +24,7 @@ body {
   text-align: center;
 }
 
-.line-width {
-  margin-top: 25px;
-  width: 100%;
-  border-top: 1px solid rgb(211, 209, 209);
-}
-
-.line-height {
-  margin: 0 200px;
+.separator {
   height: 450px;
   border-right: 1px solid rgb(211, 209, 209);
 }
@@ -42,4 +35,40 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.title {
+  color: #229e75;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 700px;
+  font-size: 64px;
+  padding-top: 50px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.area-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: white;
+
+  width: 350px;
+  height: 100%;
+  padding: 50px 25px;
+
+  border-radius: 1em;
+  box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
 }
