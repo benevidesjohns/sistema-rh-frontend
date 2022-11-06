@@ -1,20 +1,13 @@
 import React, { useContext } from "react";
-import { AuthContext } from '../../contexts/auth'
 import "./styles.css";
 
 import Sidebar from '../../components/sidebar';
 
 const DashboardPage = () => {
-  const { logout } = useContext(AuthContext);
-
-  const handleLogout = () => {
-    logout();
-  }
-
   return (
     <section className="page">
 
-      <Sidebar onLogout={handleLogout}/>
+      <Sidebar />
 
       <div>
         <h1 className="title">Dashboard</h1>

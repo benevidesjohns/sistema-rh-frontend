@@ -10,6 +10,10 @@ import {
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import RegisterPage from "./pages/RegisterPage";
+import RegisterJobPage from "./pages/RegisterJobPage";
+import RegisterCandidatePage from "./pages/RegisterCandidatePage";
+import ConfigPage from "./pages/ConfigPage";
+import ReviewCandidatesPage from "./pages/ReviewCandidatesPage";
 
 import { AuthProvider, AuthContext } from './contexts/auth';
 
@@ -37,8 +41,12 @@ const AppRoutes = () => {
       <AuthProvider>
         <Routes>
           <Route exact path="/login" element={<LoginPage />} />
-          <Route exact path="/register" element={<RegisterPage />} />
-          <Route exact path="/dashboard" element={<Private><DashboardPage /></Private>} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/register-job" element={<RegisterJobPage />} />
+          <Route path="/register-candidates" element={<RegisterCandidatePage />} />
+          <Route path="/review-candidates" element={<ReviewCandidatesPage />} />
+          <Route path="/config" element={<ConfigPage />} />
+          <Route path="/dashboard" element={<Private><DashboardPage /></Private>} />
         </Routes>
       </AuthProvider>
     </Router>

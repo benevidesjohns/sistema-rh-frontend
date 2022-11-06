@@ -55,6 +55,13 @@ body {
   padding-top: 42px;
 }
 
+.page {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
 .title {
   color: #065F46;
 
