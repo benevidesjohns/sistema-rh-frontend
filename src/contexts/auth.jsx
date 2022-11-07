@@ -1,7 +1,9 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const AuthContext = createContext();
+import api from '../services/api';
+
+export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -18,15 +20,25 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  const login = (email, password) => {
-    const loggedUser = {
-      id: '1',
-      email
-    }
+  const login = async (email, password) => {
 
-    localStorage.setItem('user', JSON.stringify(loggedUser));
+    const res = await api.post('/auth', {
+      email: email,
+      password: password,
+    });
 
-    if (password === 'asdf') {
+    // if(res.status == 401 || res.status == 404){
+    //   console.log(res.data.erro)
+    //   return
+    // }
+
+    console.log(res.data);
+    api.defaults.headers.authorization = `Bearer ${res.data.token}`
+
+    const loggedUser = await api.get(`/users/${res.data.user.id}`)
+
+    if (loggedUser) {
+      localStorage.setItem('user', JSON.stringify(loggedUser));
       setUser(loggedUser);
       navigate('/dashboard');
     }
