@@ -56,11 +56,7 @@ body {
 }
 
 .page {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: flex-start;
-  gap: 20px;
+  margin-left: 273px;
 }
 
 .title {

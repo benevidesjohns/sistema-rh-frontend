@@ -26,7 +26,7 @@ const AreaLogin = () => {
 
     // integration with my context
     login(email, password);
-    console.log('login', { email, password });
+    localStorage.setItem('sidebar', true);
   }
 
   return (

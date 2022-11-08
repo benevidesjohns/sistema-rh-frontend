@@ -1,14 +1,9 @@
 import React, { useContext } from "react";
 import "./styles.css";
 
-import Sidebar from '../../components/sidebar';
-
 const DashboardPage = () => {
   return (
     <section className="page">
-
-      <Sidebar />
-
       <div>
         <h1 className="title">Dashboard</h1>
         <div className="grid">

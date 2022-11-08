@@ -1,7 +1,6 @@
 import React, { useState, Component } from 'react';
 
 import './styles.css';
-import Sidebar from '../../components/sidebar';
 import Input from '../../components/input';
 
 import StepProgressBar from 'react-step-progress';
@@ -115,7 +114,6 @@ const JobPage = () => {
 
   return (
     <section className='page'>
-      <Sidebar />
       <div className="step-progress">
         <StepProgressBar
           startingStep={0}

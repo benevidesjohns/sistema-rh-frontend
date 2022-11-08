@@ -1,10 +1,7 @@
-import React, { useContext } from 'react';
-
 import {
   BrowserRouter as Router,
   Route,
-  Routes,
-  Navigate
+  Routes
 } from "react-router-dom";
 
 import LoginPage from "./pages/LoginPage";
@@ -16,37 +13,52 @@ import RegisterJobPage from "./pages/RegisterJobPage";
 import ConfigPage from "./pages/ConfigPage";
 import ReviewCandidatesPage from "./pages/ReviewCandidatesPage";
 
-import { AuthProvider, AuthContext } from './contexts/auth';
+import { AuthProvider } from './contexts/auth';
+import Sidebar from './components/sidebar';
 
 const AppRoutes = () => {
-
-  const Private = ({ children }) => {
-    const { authenticated, loading } = useContext(AuthContext);
-
-    if (loading) {
-      console.log('loading...');
-      return <div className="loading">Loading...</div>;
-    }
-
-    if (!authenticated) {
-      return <Navigate to='/login' />
-    }
-
-    return children;
-  }
-
   return (
     <Router>
       <AuthProvider>
         <Routes>
           <Route exact path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/candidates/create" element={<RegisterCandidatePage />} />
-          <Route path="/candidates/review" element={<ReviewCandidatesPage />} />
-          <Route path="/jobs" element={<JobsPage />} />
-          <Route path="/jobs/create" element={<RegisterJobPage />} />
-          <Route path="/config" element={<ConfigPage />} />
-          <Route path="/dashboard" element={<Private><DashboardPage /></Private>} />
+          <Route path="/candidates/create" element={
+            <>
+              <Sidebar />
+              <RegisterCandidatePage />
+            </>
+          } />
+          <Route path="/candidates/review" element={
+            <>
+              <Sidebar />
+              <ReviewCandidatesPage />
+            </>
+          } />
+          <Route path="/jobs" element={
+            <>
+              <Sidebar />
+              <JobsPage />
+            </>
+          } />
+          <Route path="/jobs/create" element={
+            <>
+              <Sidebar />
+              <RegisterJobPage />
+            </>
+          } />
+          <Route path="/config" element={
+            <>
+              <Sidebar />
+              <ConfigPage />
+            </>
+          } />
+          <Route path="/dashboard" element={
+            <>
+              <Sidebar />
+              <DashboardPage />
+            </>
+          } />
         </Routes>
       </AuthProvider>
     </Router>

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import * as MdIcon from 'react-icons/md';
 
 import './styles.css';
@@ -52,6 +52,7 @@ const DropdownMenu = ({ title, children, icon }) => {
 }
 
 const Sidebar = () => {
+
   const user = JSON.parse(localStorage.getItem('user'));
   const { logout } = useContext(AuthContext);
 
@@ -64,40 +65,43 @@ const Sidebar = () => {
   return (
     <section className="sidebar">
       <MiniLogo />
-      <h2 className="sidebar-title">Menu</h2>
-      <nav className="sidebar-menu">
-        <SidebarItem
-          icon={<MdIcon.MdSpaceDashboard />}
-          title='Dashboard'
-          onClick={() => navigate('/dashboard')}
-        />
-        <DropdownMenu title='Candidatos' children={[
-          { title: 'Revisar Candidatos', path: '/candidates/review' },
-          { title: 'Cadastrar Candidatos', path: '/candidates/create' },
-        ]} icon={<MdIcon.MdPerson />} />
-        <DropdownMenu title='Vagas' children={[
-          { title: 'Ver Vagas', path: '/jobs' },
-          { title: 'Criar Vaga', path: '/jobs/create' },
-        ]} icon={<MdIcon.MdPerson />} />
-        <SidebarItem
-          icon={<MdIcon.MdSettings />}
-          title='Configurações'
-          onClick={() => navigate('/config')}
-        />
-      </nav>
+      <section className='sidebar-section-menu'>
+        <h2 className="sidebar-title">Menu</h2>
+        <nav className="sidebar-menu">
+          <SidebarItem
+            icon={<MdIcon.MdSpaceDashboard />}
+            title='Dashboard'
+            onClick={() => navigate('/dashboard')}
+          />
+          <DropdownMenu title='Candidatos' children={[
+            { title: 'Revisar Candidatos', path: '/candidates/review' },
+            { title: 'Cadastrar Candidatos', path: '/candidates/create' },
+          ]} icon={<MdIcon.MdPerson />} />
+          <DropdownMenu title='Vagas' children={[
+            { title: 'Ver Vagas', path: '/jobs' },
+            { title: 'Criar Vaga', path: '/jobs/create' },
+          ]} icon={<MdIcon.MdBusiness />} />
+          <SidebarItem
+            icon={<MdIcon.MdSettings />}
+            title='Configurações'
+            onClick={() => navigate('/config')}
+          />
+        </nav>
+      </section>
 
       <div className="horizontal-separator"></div>
 
-      <h2 className="sidebar-title">Profile</h2>
-      <div className="profile">
-        <img src="https://avatars.githubusercontent.com/u/84235201?v=4" alt="Foto do Usuário" />
-        <div className="profile-info">
-          <h3>{user.data.name}</h3>
-          <p>{user.data.email}</p>
+      <section className='sidebar-section-profile'>
+        <h2 className="sidebar-title">Profile</h2>
+        <div className="profile">
+          <img src="https://avatars.githubusercontent.com/u/84235201?v=4" alt="Foto do Usuário" />
+          <div className="profile-info">
+            <h3>{user.data.name}</h3>
+            <p>{user.data.email}</p>
+          </div>
         </div>
-      </div>
-
-      <Button label='Sair' event={onLogout} />
+        <Button label='Sair' event={onLogout} />
+      </section>
     </section>
   );
 }

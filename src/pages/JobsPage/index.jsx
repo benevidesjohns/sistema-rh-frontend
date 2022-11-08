@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import './styles.css';
 import api from '../../services/api';
 
-import Sidebar from '../../components/sidebar';
 import Button from '../../components/button';
 
 const JobPage = () => {
@@ -24,7 +23,6 @@ const JobPage = () => {
 
   return (
     <section className='page'>
-      <Sidebar />
       <section className='content'>
         <h1 className='title'>Vagas</h1>
         <ul className='jobs-list'>
