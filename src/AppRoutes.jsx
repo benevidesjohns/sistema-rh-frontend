@@ -10,8 +10,9 @@ import {
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import RegisterPage from "./pages/RegisterPage";
-import RegisterJobPage from "./pages/RegisterJobPage";
+import JobsPage from "./pages/JobsPage";
 import RegisterCandidatePage from "./pages/RegisterCandidatePage";
+import RegisterJobPage from "./pages/RegisterJobPage";
 import ConfigPage from "./pages/ConfigPage";
 import ReviewCandidatesPage from "./pages/ReviewCandidatesPage";
 
@@ -28,11 +29,9 @@ const AppRoutes = () => {
     }
 
     if (!authenticated) {
-      console.log('not authenticated');
       return <Navigate to='/login' />
     }
 
-    console.log('authenticated: ', String(authenticated));
     return children;
   }
 
@@ -42,8 +41,9 @@ const AppRoutes = () => {
         <Routes>
           <Route exact path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/register-job" element={<RegisterJobPage />} />
+          <Route path="/jobs" element={<JobsPage />} />
           <Route path="/register-candidates" element={<RegisterCandidatePage />} />
+          <Route path="/jobs/create" element={<RegisterJobPage />} />
           <Route path="/review-candidates" element={<ReviewCandidatesPage />} />
           <Route path="/config" element={<ConfigPage />} />
           <Route path="/dashboard" element={<Private><DashboardPage /></Private>} />

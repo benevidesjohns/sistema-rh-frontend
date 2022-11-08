@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/auth';
 
 const AreaLogin = () => {
-  const { authenticated, login } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   // useState to email and password
   const [email, setEmail] = useState('');

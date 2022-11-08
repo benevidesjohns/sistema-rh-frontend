@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/auth';
 
 const Sidebar = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
   const { logout } = useContext(AuthContext);
 
   const onLogout = () => {
@@ -25,7 +26,7 @@ const Sidebar = () => {
         <li onClick={() => navigate('/dashboard')} className="sidebar-item">Overview</li>
         <li onClick={() => navigate('/register-candidates')} className="sidebar-item">Cadastrar candidatos</li>
         <li onClick={() => navigate('/review-candidates')} className="sidebar-item">Revisar Candidatos</li>
-        <li onClick={() => navigate('/register-job')} className="sidebar-item">Vagas</li>
+        <li onClick={() => navigate('/jobs')} className="sidebar-item">Vagas</li>
         <li onClick={() => navigate('/config')} className="sidebar-item">Configurações</li>
       </ul>
 
@@ -35,8 +36,8 @@ const Sidebar = () => {
       <div className="profile">
         <img src="https://avatars.githubusercontent.com/u/84235201?v=4" alt="Foto do Usuário" />
         <div className="profile-info">
-          <h3>João Benevides</h3>
-          <p>joaobenevides@email.com</p>
+          <h3>{user.data.name}</h3>
+          <p>{user.data.email}</p>
         </div>
       </div>
 

@@ -21,32 +21,31 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
+    try {
+      const res = await api.post('/auth', {
+        email: email,
+        password: password,
+      });
 
-    const res = await api.post('/auth', {
-      email: email,
-      password: password,
-    });
+      api.defaults.headers.authorization = `Bearer ${res.data.token}`
 
-    // if(res.status == 401 || res.status == 404){
-    //   console.log(res.data.erro)
-    //   return
-    // }
+      const loggedUser = await api.get(`/users/${res.data.user.id}`)
 
-    console.log(res.data);
-    api.defaults.headers.authorization = `Bearer ${res.data.token}`
-
-    const loggedUser = await api.get(`/users/${res.data.user.id}`)
-
-    if (loggedUser) {
-      localStorage.setItem('user', JSON.stringify(loggedUser));
-      setUser(loggedUser);
-      navigate('/dashboard');
+      if (loggedUser) {
+        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('user', JSON.stringify(loggedUser));
+        setUser(loggedUser);
+        navigate('/dashboard');
+      }
+    } catch (error) {
+      console.error(error.response.data)
     }
   };
 
   const logout = () => {
     console.log('logout');
     localStorage.removeItem('user');
+    localStorage.removeItem('token');
     setUser(null);
     navigate('/login');
   };
