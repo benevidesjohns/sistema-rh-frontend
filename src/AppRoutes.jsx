@@ -41,10 +41,10 @@ const AppRoutes = () => {
         <Routes>
           <Route exact path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/candidates/create" element={<RegisterCandidatePage />} />
+          <Route path="/candidates/review" element={<ReviewCandidatesPage />} />
           <Route path="/jobs" element={<JobsPage />} />
-          <Route path="/register-candidates" element={<RegisterCandidatePage />} />
           <Route path="/jobs/create" element={<RegisterJobPage />} />
-          <Route path="/review-candidates" element={<ReviewCandidatesPage />} />
           <Route path="/config" element={<ConfigPage />} />
           <Route path="/dashboard" element={<Private><DashboardPage /></Private>} />
         </Routes>

@@ -60,6 +60,7 @@ body {
   flex-direction: row;
   align-items: baseline;
   justify-content: flex-start;
+  gap: 20px;
 }
 
 .title {
