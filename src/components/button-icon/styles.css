@@ -1,0 +1,32 @@
+.button_icon {
+  background-color: #E7EAEE;
+  box-shadow: 5px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+}
+
+.button_icon:hover {
+  background-color: #10B981;
+  cursor: pointer;
+}
+
+.button_icon-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 5px;
+}
+
+.button_icon-icon svg {
+  width: 22px;
+  height: 22px;
+  color: #191D23;
+}
+
+.trailing {
+  width: 100%;
+  justify-content: flex-end;
+}

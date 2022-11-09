@@ -1,0 +1,28 @@
+.area-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1em;
+  box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
+}
+
+.line-volume-slider {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 500px;
+}
+
+.with-labels {
+  margin: 10px 15px 25px;
+}
+
+.slider {
+  display: inline;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 50%;
+}

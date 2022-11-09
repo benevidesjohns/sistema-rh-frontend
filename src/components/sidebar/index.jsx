@@ -1,24 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import * as MdIcon from 'react-icons/md';
 
 import './styles.css';
 import { AuthContext } from '../../contexts/auth';
 
 import Button from "../button";
+import ButtonIcon from "../button-icon";
 import MiniLogo from '../mini-logo';
-
-const SidebarItem = ({ icon, title, onClick, trailing }) => {
-  return (
-    <div onClick={onClick} className='sidebar-menu-item'>
-      <div className='sidebar-menu-item-icon'>{icon}</div>
-      <h2 className='sidebar-menu-item-title'>{title}</h2>
-      {trailing ? <div className='trailing sidebar-menu-item-icon'>
-        {trailing}
-      </div> : null}
-    </div>
-  );
-}
 
 const DropdownMenu = ({ title, children, icon }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -27,26 +16,24 @@ const DropdownMenu = ({ title, children, icon }) => {
 
   return (
     <section>
-      <SidebarItem
-        icon={icon}
+      <ButtonIcon
+        leading={icon}
         title={title}
         onClick={toggleMenu}
         trailing={showMenu ? <MdIcon.MdArrowDropUp /> : <MdIcon.MdArrowDropDown />}
       />
-      {showMenu ? <div className='dropdown'>
+      {showMenu && <div className='dropdown'>
         <div id='separator'></div>
         <div className='dropdown-items'>
-          {children ? children.map((item, index) => {
+          {children && children.map((item, index) => {
             return (
-              <div className='dropdown-item'>
-                <Link key={index} to={item.path} className='dropdown-item-link'>
-                  <h2 className='sidebar-menu-item-title'>{item.title}</h2>
-                </Link>
-              </div>
+              <Link key={index} to={item.path} className='dropdown-item'>
+                <h2 className='title-bold-s16'>{item.title}</h2>
+              </Link>
             )
-          }) : null}
+          })}
         </div>
-      </div> : null}
+      </div>}
     </section>
   );
 }
@@ -65,24 +52,34 @@ const Sidebar = () => {
   return (
     <section className="sidebar">
       <MiniLogo />
-      <section className='sidebar-section-menu'>
+      <section className='sidebar-section'>
         <h2 className="sidebar-title">Menu</h2>
         <nav className="sidebar-menu">
-          <SidebarItem
-            icon={<MdIcon.MdSpaceDashboard />}
+          <ButtonIcon
+            key='sidebar-item-dashboard'
+            leading={<MdIcon.MdSpaceDashboard />}
             title='Dashboard'
             onClick={() => navigate('/dashboard')}
           />
-          <DropdownMenu title='Candidatos' children={[
-            { title: 'Revisar Candidatos', path: '/candidates/review' },
-            { title: 'Cadastrar Candidatos', path: '/candidates/create' },
-          ]} icon={<MdIcon.MdPerson />} />
-          <DropdownMenu title='Vagas' children={[
-            { title: 'Ver Vagas', path: '/jobs' },
-            { title: 'Criar Vaga', path: '/jobs/create' },
-          ]} icon={<MdIcon.MdBusiness />} />
-          <SidebarItem
-            icon={<MdIcon.MdSettings />}
+          <DropdownMenu
+            key='sidebar-item-candidates'
+            title='Candidatos'
+            children={[
+              { title: 'Revisar Candidatos', path: '/candidates/review' },
+              { title: 'Cadastrar Candidatos', path: '/candidates/create' },
+            ]} icon={<MdIcon.MdPerson />}
+          />
+          <DropdownMenu
+            key='sidebar-item-jobs'
+            title='Vagas'
+            children={[
+              { title: 'Ver Vagas', path: '/jobs' },
+              { title: 'Criar Vaga', path: '/jobs/create' },
+            ]} icon={<MdIcon.MdBusiness />}
+          />
+          <ButtonIcon
+            key='sidebar-item-settings'
+            leading={<MdIcon.MdSettings />}
             title='Configurações'
             onClick={() => navigate('/config')}
           />
@@ -91,7 +88,7 @@ const Sidebar = () => {
 
       <div className="horizontal-separator"></div>
 
-      <section className='sidebar-section-profile'>
+      <section className='sidebar-section sidebar-section-profile'>
         <h2 className="sidebar-title">Profile</h2>
         <div className="profile">
           <img src="https://avatars.githubusercontent.com/u/84235201?v=4" alt="Foto do Usuário" />
