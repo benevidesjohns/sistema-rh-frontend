@@ -1,9 +1,5 @@
 .step-progress{
-  width: 80%;
-}
-
-.title {
-  padding: 30px 0;
+  width: 100%;
 }
 
 .step-area {
@@ -11,8 +7,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 20px 0;
+  gap: 30px;
 }
 
-h3 {
-  width: 100px;
+/* Area Button */
+._3uApM {
+  justify-content: space-evenly;
+}
+
+/* Button Next */
+._hsN1w {
+  background-color: #229e75;
+  border: none;
+}
+
+._hsN1w:hover {
+  background-color: #1b7e5d;
+  border: none;
 }

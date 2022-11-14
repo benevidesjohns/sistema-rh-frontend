@@ -43,7 +43,7 @@ const AreaRegister = () => {
 const RegisterPage = () => {
   return (
     <section>
-      <h1 className="auth-title">Cadastre-se</h1>
+      <h1 className="title center auth-title">Cadastre-se</h1>
       <div className="auth-area">
         <AreaLogo />
         <div className="vertical-separator"></div>

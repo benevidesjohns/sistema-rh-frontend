@@ -8,7 +8,7 @@ const ThirdStep = () => {
   return (
     <section>
       <div className="step-area third-step-area">
-        <h1 className='title' >Link do formulário da vaga para os candidatos</h1>
+        <h1 className='title section-title' >Link do formulário da vaga para os candidatos</h1>
 
         <div className="area-link-candidate">
           <div className="area-button-link" >

@@ -1,10 +1,31 @@
+.register-candidate-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.register-candidate-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.business-woman img {
+  width: 350px;
+  transform: scaleX(-1);
+}
+
 .area-button {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
   width: 475px;
-
   padding-top: 20px;
 }

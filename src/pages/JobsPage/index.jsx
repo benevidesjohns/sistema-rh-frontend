@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import './styles.css';
 import api from '../../services/api';
 
-import Button from '../../components/button';
 import CustomSlider from '../../components/slider';
 
 const JobPage = () => {
@@ -22,24 +21,26 @@ const JobPage = () => {
 
   return (
     <section className='page'>
-      <h1 className='title'>Vagas</h1>
-      <ul className='jobs-list'>
-        {
-          jobs.map((job) => {
-            return (
-              <li key={job.id}>
-                <p>{job.title}</p>
-                <p>{job.description}</p>
-                <p>
-                  Requisitos:
-                </p>
-                <CustomSlider values={job.requisites} />
-                <br />
-              </li>
-            )
-          })
-        }
-      </ul>
+      <h1 className='title center page-title'>Vagas</h1>
+      <div className='content'>
+        <ul className='jobs-list'>
+          {
+            jobs.map((job) => {
+              return (
+                <li key={job.id}>
+                  <p>{job.title}</p>
+                  <p>{job.description}</p>
+                  <p>
+                    Requisitos:
+                  </p>
+                  <CustomSlider values={job.requisites} />
+                  <br />
+                </li>
+              )
+            })
+          }
+        </ul>
+      </div>
     </section>
   );
 }

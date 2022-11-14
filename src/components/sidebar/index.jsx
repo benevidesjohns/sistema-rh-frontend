@@ -28,7 +28,7 @@ const DropdownMenu = ({ title, children, icon }) => {
           {children && children.map((item, index) => {
             return (
               <Link key={index} to={item.path} className='dropdown-item'>
-                <h2 className='title-bold-s16'>{item.title}</h2>
+                <h2 className='description-bold'>{item.title}</h2>
               </Link>
             )
           })}

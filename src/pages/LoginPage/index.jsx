@@ -49,7 +49,7 @@ const AreaLogin = () => {
 const LoginPage = () => {
   return (
     <section>
-      <h1 className="auth-title">Login</h1>
+      <h1 className="title center auth-title">Login</h1>
       <div className="auth-area">
         <AreaLogo />
         <div className="vertical-separator"></div>

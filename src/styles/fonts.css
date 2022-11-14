@@ -1,0 +1,48 @@
+/* Title */
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.center {
+  justify-content: center;
+}
+
+/* Auth Title */
+.auth-title {
+  color: #229e75;
+  font-weight: 700px;
+  font-size: 48px;
+  padding-top: 42px;
+}
+
+/* Page Title */
+.page-title {
+  color: #065F46;
+  background-color: #229e75;
+  font-weight: 700px;
+  font-size: 30px;
+  padding: 24px 0;
+}
+
+/* Section Title */
+.section-title {
+  color: #10B981;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+/* Component Title */
+.component-title {
+  color: #047857;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* Description */
+.description-bold {
+  color: #191D23;
+  font-weight: 600;
+  font-size: 16px;
+}

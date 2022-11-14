@@ -4,18 +4,16 @@
   font: inherit;
   cursor: pointer;
   outline: inherit;
-
+  background: #229e75;
   width: 225px;
   height: 5ch;
-
-  background: #229e75;
   border-radius: 10px;
+}
+
+.button-cancel {
+  background: grey;
 }
 
 .button:active {
   background: #649b89;
-}
-
-.actions {
-  margin-top: 10px;
 }

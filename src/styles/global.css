@@ -20,10 +20,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.loading {
-  text-align: center;
-}
-
 .vertical-separator {
   height: 450px;
   border-right: 1px solid rgb(211, 209, 209);
@@ -34,69 +30,10 @@ body {
   border-bottom: 1px solid rgb(211, 209, 209);
 }
 
-.auth-area {
-  padding: 50px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.auth-title {
-  color: #229e75;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  font-weight: 700px;
-  font-size: 48px;
-  padding-top: 42px;
-}
-
 .page {
   margin-left: 273px;
 }
 
-.title {
-  color: #065F46;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: baseline;
-  align-items: center;
-
-  font-weight: 700px;
-  font-size: 30px;
-}
-
-.title-bold-s16 {
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  color: #191D23;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.area-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-
-  background-color: white;
-
-  width: 350px;
-  height: 100%;
-  padding: 50px 25px;
-
-  border-radius: 1em;
-  box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
+.content {
+  padding: 15px;
 }

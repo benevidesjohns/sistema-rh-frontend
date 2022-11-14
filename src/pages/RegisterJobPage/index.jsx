@@ -18,34 +18,37 @@ const JobPage = () => {
 
   return (
     <section className='page'>
-      <div className="step-progress">
-        <StepProgressBar
-          startingStep={0}
-          onSubmit={onFormSubmit}
-          steps={[
-            {
-              label: 'Informações gerais',
-              name: 'Etapa 1',
-              content: <FirstStep />,
-              // validator: step1Validator
-            },
-            {
-              label: 'Objetivos',
-              name: 'Etapa 2',
-              content: <SecondStep />,
-              // validator: step2Validator
-            },
-            {
-              label: 'Link',
-              name: 'Etapa 3',
-              content: <ThirdStep />,
-              // validator: step3Validator
-            }
-          ]}
-          previousBtnName="Voltar"
-          nextBtnName="Avançar"
-          submitBtnName='Finalizar'
-        />
+      <h1 className='title center page-title'>Criar Vaga</h1>
+      <div className='content'>
+        <div className="step-progress">
+          <StepProgressBar
+            startingStep={0}
+            onSubmit={onFormSubmit}
+            steps={[
+              {
+                label: 'Informações gerais',
+                name: 'Etapa 1',
+                content: <FirstStep />,
+                // validator: step1Validator
+              },
+              {
+                label: 'Objetivos',
+                name: 'Etapa 2',
+                content: <SecondStep />,
+                // validator: step2Validator
+              },
+              {
+                label: 'Link',
+                name: 'Etapa 3',
+                content: <ThirdStep />,
+                // validator: step3Validator
+              }
+            ]}
+            previousBtnName="Voltar"
+            nextBtnName="Avançar"
+            submitBtnName='Finalizar'
+          />
+        </div>
       </div>
     </section>
   );

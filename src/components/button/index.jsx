@@ -2,19 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-const Button = ({ label, event, isCancel = false}) => {
+const Button = ({ label, event, isCancel = false }) => {
   return (
-    <div className="actions">
-      <button
-
-      style={{
-        backgroundColor: isCancel ? 'gray' : '',
-      }}
-
-      className="button" type="submit" onClick={event}>
-        {label}
-      </button>
-    </div>
+    <button
+      className={`button ${isCancel && "button-cancel"}`}
+      type="submit"
+      onClick={event}
+    > {label} </button>
   );
 }
 
