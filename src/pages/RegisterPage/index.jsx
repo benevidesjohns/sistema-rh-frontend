@@ -31,7 +31,6 @@ const AreaRegister = () => {
         <Input value={email} onChange={setInputEmail} label="Email" typeInput="email" />
         <Input value={email} onChange={setInputEmail} label="Confirme o email" typeInput="confirmEmail" />
         <Input value={password} onChange={setInputPassword} label="Senha" typeInput="password" />
-
         <Button label='Cadastrar' />
       </form>
 

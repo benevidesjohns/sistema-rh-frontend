@@ -6,16 +6,6 @@
   gap: 30px;
 }
 
-.register-candidate-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
-  padding: 25px;
-  border-radius: 15px;
-}
-
 .business-woman img {
   width: 350px;
   transform: scaleX(-1);

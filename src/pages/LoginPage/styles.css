@@ -1,17 +1,7 @@
-.forgot-password {
-  padding-bottom: 20px;
-}
-
-.forgot-password a {
-  text-align: start;
-  text-decoration: none;
-  color: #10B981;
-}
-
-.forgot-password a:active {
+.forgot-password .font-link:active {
   color: #649b89;
 }
 
-.forgot-password a:hover {
+.forgot-password .font-link:hover {
   text-decoration: underline;
 }

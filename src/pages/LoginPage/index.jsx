@@ -26,19 +26,26 @@ const AreaLogin = () => {
 
     // integration with my context
     login(email, password);
-    localStorage.setItem('sidebar', true);
   }
 
   return (
     <div className="area-form">
       <form onSubmit={submit} className="form">
-        <Input value={email} onChange={setInputEmail} label="Email" typeInput="email" />
-        <Input value={password} onChange={setInputPassword} label="Senha" typeInput="password" />
-
+        <Input
+          value={email}
+          onChange={setInputEmail}
+          label="Email"
+          typeInput="email"
+        />
+        <Input
+          value={password}
+          onChange={setInputPassword}
+          label="Senha"
+          typeInput="password"
+        />
         <div className="forgot-password">
-          <a href="">Esqueci minha senha</a>
+          <a href="" className='font-link'>Esqueci minha senha</a>
         </div>
-
         <Button label='Entrar' />
       </form>
       <Button label='Cadastre-se' event={() => navigate('/register')} />
