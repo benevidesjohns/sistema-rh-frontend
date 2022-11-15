@@ -30,3 +30,42 @@
   justify-content: center;
   width: 100%;
 }
+
+/* Remove o preenchimento do slider */
+.rangeslider-horizontal .rangeslider__fill {
+  background-color: #e6e6e6;
+}
+
+/* Altera a cor do botão de slider */
+.rangeslider-horizontal .rangeslider__handle:after {
+  background-color: #10B981;
+}
+
+.rangeslider-horizontal .rangeslider__handle {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.rangeslider .rangeslider__handle {
+  background: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 40%), 0 -1px 3px rgb(0 0 0 / 40%);
+}
+
+/* .rangeslider-horizontal .rangeslider__handle:after {
+  content: ' ';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 6px;
+  left: 6px;
+  border-radius: 50%;
+  background-color: #dadada;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 40%) inset, 0 -1px 3px rgb(0 0 0 / 40%) inset;
+} */

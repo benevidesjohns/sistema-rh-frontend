@@ -10,7 +10,7 @@ const CustomSlider = ({ showLabels, enable, values }) => {
     constructor(props) {
       super(props)
       this.state = {
-        volume: props.value | 0
+        volume: props.value | 50,
       }
     }
 

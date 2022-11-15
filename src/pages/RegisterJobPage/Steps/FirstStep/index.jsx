@@ -1,27 +1,57 @@
-import Input from "../../../../components/input";
+import { useState } from "react";
+
 import './styles.css';
 
-// const Validator = () => {
-//   console.log('Step 1 - OK');
-// }
+import Input from "../../../../components/input";
 
 const FirstStep = () => {
+
+  const job = JSON.parse(localStorage.getItem('job'))
+
+  const [title, setTitle] = useState(job.title);
+  const [description, setDescription] = useState(job.description);
+
+  const changeTitle = (title) => {
+    setTitle(title.target.value);
+    const job = JSON.parse(localStorage.getItem('job'))
+    localStorage.setItem(
+      'job',
+      JSON.stringify({ ...job, title: title.target.value })
+    )
+  };
+
+  const changeDescription = (description) => {
+    setDescription(description.target.value);
+    const job = JSON.parse(localStorage.getItem('job'))
+    localStorage.setItem(
+      'job',
+      JSON.stringify({ ...job, description: description.target.value })
+    )
+  };
+
   return (
     <section>
       <div className="step-area first-step-area">
         <h1 className='title section-title' >Escolha um título de uma descrição para a vaga</h1>
         <div className="area-form">
           <div className="form">
-            <Input label='Título da vaga' typeInput='title-job' onChange={() => { }} />
-            <Input label='Descrição da vaga' typeInput='description-job' onChange={() => { }} />
+            <Input
+              value={title}
+              label='Título da vaga'
+              typeInput='title-job'
+              onChange={changeTitle}
+            />
+            <Input
+              value={description}
+              label='Descrição da vaga'
+              typeInput='description-job'
+              onChange={changeDescription}
+            />
           </div>
         </div>
-
       </div>
     </section>
   );
 }
-
-// export function Validator();
 
 export default FirstStep;
