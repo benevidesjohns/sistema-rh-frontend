@@ -40,7 +40,7 @@ const DropdownMenu = ({ title, children, icon }) => {
 
 const Sidebar = () => {
 
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem('user'))
   const { logout } = useContext(AuthContext);
 
   const onLogout = () => {

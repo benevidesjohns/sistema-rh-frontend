@@ -2,17 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-const Input = ({ value, onChange, label, typeInput }) => {
+const Input = ({ id, value, onChange, label, typeInput }) => {
   return (
     <div className="field">
-
-      {
-        label ? <label htmlFor={typeInput}>{label}</label> : ''
-      }
-
+      {label && <label htmlFor={typeInput}>{label}</label>}
       <input
         type={typeInput}
-        id={typeInput}
+        id={id || typeInput}
         name={typeInput}
         value={value}
         onChange={onChange}

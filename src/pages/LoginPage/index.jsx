@@ -32,12 +32,14 @@ const AreaLogin = () => {
     <div className="area-form">
       <form onSubmit={submit} className="form">
         <Input
-          value={email}
-          onChange={setInputEmail}
-          label="Email"
-          typeInput="email"
+        id={0}
+        value={email}
+        onChange={setInputEmail}
+        label="Email"
+        typeInput="email"
         />
         <Input
+        id={1}
           value={password}
           onChange={setInputPassword}
           label="Senha"

@@ -8,9 +8,18 @@
 
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 0.5em;
-  box-shadow: 0 1.500em rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
   min-width: 450px;
   min-height: 100px;
+
+  gap: 20px;
+}
+
+.area-number-candidate-job {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .container-job {
@@ -19,13 +28,15 @@
   align-items: flex-start;
   justify-content: space-between;
 
-  padding: 20px 0;
+  gap: 40px;
 }
 
 .job-office {
   padding: 0 20px;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 0.3em;
+
+  box-shadow: 1.000em 0.500em rgba(0, 0, 0, 0.25);
 }
 
 .job-office p {
@@ -41,7 +52,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: seagreen;
 }
 
 .description {
@@ -55,8 +65,10 @@
 .area-pending-jobs {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
+
+  gap: 12px;
 }
 
 .pending-job {
@@ -66,8 +78,10 @@
   justify-content: space-between;
 
   border: 1px solid rgba(0, 0, 0, 0.25);
-  border-radius: 0.3em;
   padding: 0 20px;
+
+  border-radius: 0.5em;
+  box-shadow: 1.000em 0.500em rgba(0, 0, 0, 0.25);
 }
 
 .pending-job p {

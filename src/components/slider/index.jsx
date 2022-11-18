@@ -10,15 +10,19 @@ const CustomSlider = ({ showLabels, enable, values }) => {
     constructor(props) {
       super(props)
       this.state = {
-        volume: props.value | 50,
+        volume: props.value,
       }
     }
 
     handleOnChange = (value) => {
-      if (value < 25) {
+      if (value < 12.5) {
         value = 0;
-      } else if (value >= 25 && value < 75) {
+      } else if (value > 12.5 && value < 37.5) {
+        value = 25;
+      } else if (value > 37.5 && value < 62.5) {
         value = 50;
+      } else if (value > 62.5 && value < 87.5) {
+        value = 75;
       } else {
         value = 100;
       }
@@ -36,7 +40,7 @@ const CustomSlider = ({ showLabels, enable, values }) => {
             tooltip={false}
             orientation="horizontal"
             onChange={enable && this.handleOnChange}
-            labels={showLabels && { 0: '|', 50: '|', 100: '|' }}
+            labels={showLabels && { 0: '|', 25: '|', 50: '|', 75: '|', 100: '|' }}
           />
         </div>
       )
@@ -48,24 +52,24 @@ const CustomSlider = ({ showLabels, enable, values }) => {
 
       <div className={`line-volume-slider ${showLabels && 'with-labels'}`}>
         <h3 className='description-box description-bold'>Colaborativo</h3>
-        <VolumeSlider value={values && values.independente * 50} />
+        <VolumeSlider value={values && values.independente * 25} />
         <h3 className='description-box description-bold'>Independente</h3>
       </div>
 
       <div className={`line-volume-slider ${showLabels && 'with-labels'}`}>
         <h3 className='description-box description-bold'>Reservado</h3>
-        <VolumeSlider value={values && values.sociavel * 50} />
+        <VolumeSlider value={values && values.sociavel * 25} />
         <h3 className='description-box description-bold'>Sociável</h3>
       </div>
       <div className={`line-volume-slider ${showLabels && 'with-labels'}`}>
         <h3 className='description-box description-bold'>Intenso</h3>
-        <VolumeSlider value={values && values.paciente * 50} />
+        <VolumeSlider value={values && values.paciente * 25} />
         <h3 className='description-box description-bold'>Paciente</h3>
       </div>
 
       <div className={`line-volume-slider ${showLabels && 'with-labels'}`}>
         <h3 className='description-box description-bold'>Impulsivo</h3>
-        <VolumeSlider value={values && values.vigilante * 50} />
+        <VolumeSlider value={values && values.vigilante * 25} />
         <h3 className='description-box description-bold'>Vigilante</h3>
       </div>
 

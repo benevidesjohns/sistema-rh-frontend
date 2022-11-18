@@ -5,6 +5,7 @@
   justify-content: center;
   border-radius: 1em;
   box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
+  width: 520px;
 }
 
 .line-volume-slider {
@@ -36,11 +37,6 @@
   background-color: #e6e6e6;
 }
 
-/* Altera a cor do botão de slider */
-.rangeslider-horizontal .rangeslider__handle:after {
-  background-color: #10B981;
-}
-
 .rangeslider-horizontal .rangeslider__handle {
   width: 30px;
   height: 30px;
@@ -50,22 +46,22 @@
 }
 
 .rangeslider .rangeslider__handle {
-  background: #fff;
-  border: 1px solid #ccc;
+  background: none;
+  border: none;
   cursor: pointer;
   display: inline-block;
   position: absolute;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 40%), 0 -1px 3px rgb(0 0 0 / 40%);
+  box-shadow: none;
 }
 
-/* .rangeslider-horizontal .rangeslider__handle:after {
+.rangeslider-horizontal .rangeslider__handle:after {
   content: ' ';
   position: absolute;
-  width: 16px;
-  height: 16px;
-  top: 6px;
-  left: 6px;
+  width: 22px;
+  height: 22px;
+  top: 3px;
+  left: 3px;
   border-radius: 50%;
-  background-color: #dadada;
+  background-color: #10B981;
   box-shadow: 0 1px 3px rgb(0 0 0 / 40%) inset, 0 -1px 3px rgb(0 0 0 / 40%) inset;
-} */
+}

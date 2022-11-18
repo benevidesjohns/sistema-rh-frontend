@@ -9,6 +9,14 @@ import Button from '../../components/button';
 const RegisterCandidatePage = () => {
   const navigate = useNavigate();
 
+  const submit = (e) => {
+    e.preventDefault();
+
+
+
+    navigate('/candidates/review');
+  }
+
   return (
     <section className='page'>
       <h1 className='title center page-title'>Cadastrar Candidatos</h1>
@@ -17,12 +25,12 @@ const RegisterCandidatePage = () => {
           <h1 className='title section-title' >Informações gerais</h1>
           <div className='area-form'>
             <div className='form'>
-              <Input label='Nome' typeInput='title-name' onChange={() => { }} />
-              <Input label='Email' typeInput='title-email' onChange={() => { }} />
-              <Input label='Telefone' typeInput='title-phone' onChange={() => { }} />
+              <Input id={0} label='Nome' typeInput='title-name' onChange={() => { }} />
+              <Input id={1} label='Email' typeInput='title-email' onChange={() => { }} />
+              <Input id={2} label='Telefone' typeInput='title-phone' onChange={() => { }} />
               <div className="area-button">
                 <Button label='Cancelar' event={() => navigate('/dashboard')} isCancel={true} />
-                <Button label='Salvar' event={() => navigate('/candidates/review')} />
+                <Button label='Salvar' event={submit} />
               </div>
             </div>
           </div>

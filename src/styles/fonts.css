@@ -1,12 +1,17 @@
+/* Aux Classes */
+.center {
+  justify-content: center;
+}
+
+.black {
+  color: #191D23;
+}
+
 /* Title */
 .title {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-.center {
-  justify-content: center;
 }
 
 /* Auth Title */
@@ -41,10 +46,23 @@
 }
 
 /* Description */
+.description-font {
+  color: #191D23;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.description-font-green {
+  color: #047857;
+  font-weight: 600;
+  font-size: 16px;
+}
+
 .description-bold {
   color: #191D23;
   font-weight: 600;
   font-size: 16px;
+  white-space: nowrap;
 }
 
 /* Links */

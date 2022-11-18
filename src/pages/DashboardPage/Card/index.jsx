@@ -1,33 +1,34 @@
 import './styles.css'
 
+import Button from '../../../components/button';
+import ButtonIcon from '../../../components/button-icon';
+
+import * as MdIcon from 'react-icons/md';
+
 const PendingReviews = () => {
   return (
-    <div className="area-peding-jobs">
+    <div className="area-pending-jobs">
 
       <div className="pending-job">
+        <MdIcon.MdPerson />
         <p>João da Silva</p>
         <p>Operador</p>
-        <button>Reenviar</button>
+        <ButtonIcon  leading={<MdIcon.MdSend />} title='Reenviar'/>
       </div>
 
       <div className="pending-job">
+        <MdIcon.MdPerson />
         <p>João da Silva</p>
         <p>Operador</p>
-        <button>Reenviar</button>
+        <ButtonIcon leading={<MdIcon.MdQueryBuilder />} title='Reenviar'/>
       </div>
 
       <div className="pending-job">
+        <MdIcon.MdPerson />
         <p>João da Silva</p>
         <p>Operador</p>
-        <button>Reenviar</button>
+        <ButtonIcon leading={<MdIcon.MdSend />} title='Reenviar'/>
       </div>
-
-      <div className="pending-job">
-        <p>João da Silva</p>
-        <p>Operador</p>
-        <button>Reenviar</button>
-      </div>
-
     </div>
   );
 }
@@ -37,26 +38,33 @@ const RecentActivities = () => {
     <div className="container-job">
 
       <div className="job-office">
-        <p>Gerente de Projetos</p>
+        <h1 className='title center component-title'>Gerente de Projetos</h1>
         <div className="description">
+          <div className="area-number-candidate-job">
+            <MdIcon.MdPerson />
+            <p>Candidatos: 6</p>
+          </div>
           <p>Aberto há 23 dias</p>
-          <p>Candidatos: 6</p>
         </div>
 
         <div className="button-job">
-          <button>Acessar</button>
+          <ButtonIcon title='Acessar'/>
         </div>
       </div>
 
       <div className="job-office">
-        <p>Designer</p>
+        <h1 className='title center component-title'>Designer</h1>
         <div className="description">
+          <div className="area-number-candidate-job">
+            <MdIcon.MdPerson />
+            <p>Candidatos: 6</p>
+          </div>
+
           <p>Aberto há 23 dias</p>
-          <p>Candidatos: 6</p>
         </div>
 
         <div className="button-job">
-          <button>Acessar</button>
+          <ButtonIcon title='Acessar' />
         </div>
       </div>
 
@@ -70,7 +78,7 @@ const Card = ({ title, showList = true }) => {
       <h1 className="section-title">{title}</h1>
 
       {showList ? <PendingReviews /> : <RecentActivities />}
-      <button className="button-container">Ver todas</button>
+      <Button label='Ver todas' event={() => {}}/>
 
     </div>
   );

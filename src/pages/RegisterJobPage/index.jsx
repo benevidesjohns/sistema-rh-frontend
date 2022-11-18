@@ -1,65 +1,39 @@
-import { useNavigate } from 'react-router-dom';
-
+import { useContext } from 'react';
 import StepProgressBar from 'react-step-progress';
 import 'react-step-progress/dist/index.css';
 
 import './styles.css';
-import api from '../../services/api';
+import { JobsContext } from '../../contexts/jobs';
 
 import FirstStep from './Steps/FirstStep'
 import SecondStep from './Steps/SecondStep'
 import ThirdStep from './Steps/ThirdStep'
 
 const JobPage = () => {
-  const navigate = useNavigate();
-
-  localStorage.setItem('job', JSON.stringify({
-    title: "",
-    description: "",
-    requisites: {
-      independente: 1,
-      sociavel: 1,
-      paciente: 1,
-      vigilante: 1,
-    }
-  }));
+  const { create, updateCurrentJob } = useContext(JobsContext)
 
   // Validators
   const firstStepValidator = () => {
-    const job = JSON.parse(localStorage.getItem('job'));
-    return job.title && job.description;
+    const currentJob = JSON.parse(localStorage.getItem('job'));
+
+    console.log("First Step:", currentJob);
+    return currentJob.title && currentJob.description;
   }
 
   const secondStepValidator = () => {
     const sliders = document.getElementsByClassName('rangeslider rangeslider-horizontal');
-    const sliderValues = [...sliders].map((slider) => Number(slider.ariaValueNow) / 50)
+    const requisites = [...sliders].map((slider) => Number(slider.ariaValueNow) / 25)
 
-    const job = JSON.parse(localStorage.getItem('job'));
-    localStorage.setItem('job', JSON.stringify({
-      ...job, requisites: {
-        independente: sliderValues[0],
-        sociavel: sliderValues[1],
-        paciente: sliderValues[2],
-        vigilante: sliderValues[3],
-      }
-    }))
+    const currentJob = JSON.parse(localStorage.getItem('job'));
+    const updatedJob = {...currentJob, values: requisites}
+    updateCurrentJob(updatedJob);
 
+    console.log("Second Step:", updatedJob.values);
     return true;
   }
 
   const onFormSubmit = async () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    const token = localStorage.getItem('token');
-    const job = JSON.parse(localStorage.getItem('job'));
-
-    try {
-      api.defaults.headers.authorization = `Bearer ${token}`;
-      await api.post(`users/${user.data.id}/vagas`, job)
-      console.log("Created Job:", JSON.stringify(job));
-      navigate('/jobs');
-    } catch (error) {
-      console.log("Erro:", error.response.data)
-    }
+    await create();
   }
 
   return (
