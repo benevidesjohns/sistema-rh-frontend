@@ -1,4 +1,4 @@
-import React, { createContext, useEffect } from 'react';
+import React, { createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import api from '../services/api';

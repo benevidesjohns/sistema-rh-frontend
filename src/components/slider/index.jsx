@@ -52,24 +52,24 @@ const CustomSlider = ({ showLabels, enable, values }) => {
 
       <div className={`line-volume-slider ${showLabels && 'with-labels'}`}>
         <h3 className='description-box description-bold'>Colaborativo</h3>
-        <VolumeSlider value={values && values.independente * 25} />
+        <VolumeSlider value={values.independente * 25} />
         <h3 className='description-box description-bold'>Independente</h3>
       </div>
 
       <div className={`line-volume-slider ${showLabels && 'with-labels'}`}>
         <h3 className='description-box description-bold'>Reservado</h3>
-        <VolumeSlider value={values && values.sociavel * 25} />
+        <VolumeSlider value={values.sociavel * 25} />
         <h3 className='description-box description-bold'>Sociável</h3>
       </div>
       <div className={`line-volume-slider ${showLabels && 'with-labels'}`}>
         <h3 className='description-box description-bold'>Intenso</h3>
-        <VolumeSlider value={values && values.paciente * 25} />
+        <VolumeSlider value={values.paciente * 25} />
         <h3 className='description-box description-bold'>Paciente</h3>
       </div>
 
       <div className={`line-volume-slider ${showLabels && 'with-labels'}`}>
         <h3 className='description-box description-bold'>Impulsivo</h3>
-        <VolumeSlider value={values && values.vigilante * 25} />
+        <VolumeSlider value={values.vigilante * 25} />
         <h3 className='description-box description-bold'>Vigilante</h3>
       </div>
 
