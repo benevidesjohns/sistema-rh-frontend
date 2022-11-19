@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import "./styles.css";
+import { AuthContext } from '../../contexts/auth';
+import {ROUTES} from '../../routes/paths'
+
 import Button from '../../components/button';
 import Input from '../../components/input';
 import AreaLogo from '../../components/area-logo';
-import "./styles.css";
-
-import { useNavigate } from 'react-router-dom';
-
-import { AuthContext } from '../../contexts/auth';
 
 const AreaLogin = () => {
   const { login } = useContext(AuthContext);
@@ -50,7 +51,7 @@ const AreaLogin = () => {
         </div>
         <Button label='Entrar' />
       </form>
-      <Button label='Cadastre-se' event={() => navigate('/register')} />
+      <Button label='Cadastre-se' event={() => navigate(ROUTES.REGISTER)} />
     </div>
   );
 }

@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import "./styles.css";
+import {ROUTES} from '../../routes/paths'
+import { AuthContext } from '../../contexts/auth';
+
 import Button from '../../components/button';
 import Input from '../../components/input';
 import AreaLogo from '../../components/area-logo';
-import "./styles.css";
-
-import { useNavigate } from 'react-router-dom';
-import api from '../../services/api';
-import { AuthContext } from '../../contexts/auth';
 
 const AreaRegister = () => {
   const { register } = useContext(AuthContext);
@@ -64,7 +65,7 @@ const AreaRegister = () => {
         <Button label='Cadastrar' />
       </form>
 
-      <Button label='Voltar' event={() => navigate('/login')} />
+      <Button label='Voltar' event={() => navigate(ROUTES.LOGIN)} />
     </div>
   );
 }

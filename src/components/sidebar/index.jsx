@@ -4,6 +4,7 @@ import * as MdIcon from 'react-icons/md';
 
 import './styles.css';
 import { AuthContext } from '../../contexts/auth';
+import {ROUTES} from '../../routes/paths'
 
 import ButtonIcon from "../button-icon";
 import MiniLogo from '../mini-logo';
@@ -58,29 +59,29 @@ const Sidebar = () => {
             key='sidebar-item-dashboard'
             leading={<MdIcon.MdSpaceDashboard />}
             title='Dashboard'
-            onClick={() => navigate('/dashboard')}
+            onClick={() => navigate(ROUTES.DASHBOARD)}
           />
           <DropdownMenu
             key='sidebar-item-candidates'
             title='Candidatos'
             children={[
-              { title: 'Revisar Candidatos', path: '/candidates/review' },
-              { title: 'Cadastrar Candidatos', path: '/candidates/create' },
+              { title: 'Ver Candidatos', path: ROUTES.CANDIDATES },
+              { title: 'Cadastrar Candidato', path: ROUTES.CREATE_CANDIDATE },
             ]} icon={<MdIcon.MdPerson />}
           />
           <DropdownMenu
             key='sidebar-item-jobs'
             title='Vagas'
             children={[
-              { title: 'Ver Vagas', path: '/jobs' },
-              { title: 'Criar Vaga', path: '/jobs/create' },
+              { title: 'Ver Vagas', path: ROUTES.JOBS },
+              { title: 'Criar Vaga', path: ROUTES.CREATE_JOB },
             ]} icon={<MdIcon.MdBusiness />}
           />
           <ButtonIcon
             key='sidebar-item-settings'
             leading={<MdIcon.MdSettings />}
             title='Configurações'
-            onClick={() => navigate('/config')}
+            onClick={() => navigate(ROUTES.CONFIG)}
           />
         </nav>
       </section>

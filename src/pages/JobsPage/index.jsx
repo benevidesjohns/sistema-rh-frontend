@@ -5,7 +5,7 @@ import './styles.css';
 import ItemVaga from '../../components/item-vaga';
 import { JobsContext } from '../../contexts/jobs';
 
-const JobPage = () => {
+const JobsPage = () => {
   const { list, updated, setUpdated, jobs } = useContext(JobsContext);
 
   useEffect(() => {
@@ -29,4 +29,4 @@ const JobPage = () => {
   );
 }
 
-export default JobPage;
+export default JobsPage;

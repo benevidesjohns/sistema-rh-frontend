@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 import api from '../services/api';
 
+import {ROUTES} from '../routes/paths'
+
 const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
@@ -22,7 +24,7 @@ const AuthProvider = ({ children }) => {
       if (loggedUser) {
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('user', JSON.stringify(loggedUser));
-        navigate('/dashboard');
+        navigate(ROUTES.DASHBOARD);
       }
     } catch (error) {
       console.error("Error:", JSON.stringify(error.response.data))
@@ -32,7 +34,7 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('user')
     localStorage.removeItem('token')
-    navigate('/login');
+    navigate(ROUTES.LOGIN);
   };
 
   const register = async (name, email, password, passwordConfirmation) => {
@@ -44,7 +46,7 @@ const AuthProvider = ({ children }) => {
         passwordConfirmation: passwordConfirmation,
       });
       console.log("Registered User Successfully:", JSON.stringify(res.data));
-      navigate('/login');
+      navigate(ROUTES.LOGIN);
     } catch (error) {
       console.error("Error:", error.response.data)
     }

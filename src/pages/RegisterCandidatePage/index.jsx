@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import './styles.css';
 import businessWoman from '../../assets/business-woman.png';
 import { CandidatesContext } from '../../contexts/candidates';
+import {ROUTES} from '../../routes/paths'
 
 import Input from '../../components/input';
 import Button from '../../components/button';
@@ -55,7 +56,7 @@ const RegisterCandidatePage = () => {
               <div className="area-button">
                 <Button
                   label='Cancelar'
-                  event={() => navigate('/dashboard')}
+                  event={() => navigate(ROUTES.DASHBOARD)}
                   isCancel={true}
                 />
                 <Button label='Salvar' event={submit} />

@@ -3,7 +3,7 @@ import './styles.css';
 import { JobsContext } from '../../contexts/jobs';
 import { useContext } from 'react';
 
-const ViewCandidatesPage = ({job}) => {
+const JobCandidatesPage = ({ job }) => {
 
   const { jobs } = useContext(JobsContext);
 
@@ -22,4 +22,4 @@ const ViewCandidatesPage = ({job}) => {
   );
 }
 
-export default ViewCandidatesPage;
+export default JobCandidatesPage;

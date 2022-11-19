@@ -2,6 +2,7 @@ import React, { useState, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import api from '../services/api';
+import {ROUTES} from '../routes/paths'
 
 const CandidatesContext = createContext({});
 
@@ -24,7 +25,7 @@ const CandidatesProvider = ({ children }) => {
 
       console.log("Created Candidate Successfully:", res.data);
       setUpdated(false)
-      navigate('/candidates/review');
+      navigate(ROUTES.CANDIDATES);
     } catch (error) {
       console.error("Error:", error.response.data)
     }

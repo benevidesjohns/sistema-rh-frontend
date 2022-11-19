@@ -2,6 +2,7 @@ import React, { useState, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import api from '../services/api';
+import {ROUTES} from '../routes/paths'
 
 const JobsContext = createContext({});
 
@@ -59,7 +60,7 @@ const JobsProvider = ({ children }) => {
       localStorage.removeItem('job')
       setCurrentJob(defaultJob)
       setUpdated(false)
-      navigate('/jobs');
+      navigate(ROUTES.JOBS);
     } catch (error) {
       console.error("Error:", error.response.data)
     }

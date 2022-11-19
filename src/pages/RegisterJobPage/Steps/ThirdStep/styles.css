@@ -1,13 +1,8 @@
 .area-link-candidate {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 800px;
-  height: 350px;
-
-  border-radius: 1em;
-  box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
 }
 
 .area-button-link{

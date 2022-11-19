@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react';
 import './styles.css';
 import { CandidatesContext } from '../../contexts/candidates'
 
-const ReviewCandidatesPage = () => {
+const CandidatesPage = () => {
   const { list, updated, setUpdated, candidates } = useContext(CandidatesContext);
 
   useEffect(() => {
@@ -39,4 +39,4 @@ const ReviewCandidatesPage = () => {
   );
 }
 
-export default ReviewCandidatesPage;
+export default CandidatesPage;

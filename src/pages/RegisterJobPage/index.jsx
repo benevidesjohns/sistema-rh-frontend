@@ -9,7 +9,7 @@ import FirstStep from './Steps/FirstStep'
 import SecondStep from './Steps/SecondStep'
 import ThirdStep from './Steps/ThirdStep'
 
-const JobPage = () => {
+const RegisterJobPage = () => {
   const { create, updateCurrentJob } = useContext(JobsContext)
 
   // Validators
@@ -74,4 +74,4 @@ const JobPage = () => {
   );
 }
 
-export default JobPage;
+export default RegisterJobPage;
