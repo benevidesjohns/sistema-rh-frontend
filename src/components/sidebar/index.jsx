@@ -5,7 +5,6 @@ import * as MdIcon from 'react-icons/md';
 import './styles.css';
 import { AuthContext } from '../../contexts/auth';
 
-import Button from "../button";
 import ButtonIcon from "../button-icon";
 import MiniLogo from '../mini-logo';
 
@@ -104,7 +103,6 @@ const Sidebar = () => {
             center={true}
             onClick={onLogout}
           />
-        {/* <Button label='Sair' event={onLogout} /> */}
       </section>
     </section>
   );
