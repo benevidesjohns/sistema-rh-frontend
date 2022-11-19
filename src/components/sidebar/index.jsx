@@ -97,7 +97,14 @@ const Sidebar = () => {
             <p>{user.data.email}</p>
           </div>
         </div>
-        <Button label='Sair' event={onLogout} />
+        <ButtonIcon
+            key='sidebar-item-logout'
+            leading={<MdIcon.MdLogout />}
+            title='Sair'
+            center={true}
+            onClick={onLogout}
+          />
+        {/* <Button label='Sair' event={onLogout} /> */}
       </section>
     </section>
   );

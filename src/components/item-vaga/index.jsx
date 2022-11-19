@@ -25,7 +25,7 @@ const ItemVaga = ({ job, isClosed = false }) => {
 
           <div className="area-title-description">
             <h1 className='component-title'>{job.title}</h1>
-            <h3 className='description-font description-job'>{job.id}</h3>
+            <h3 className='description-font description-job'>{job.description}</h3>
             <div className='opening-date-job'>
               <h3 className="description-font-green">Data de Abertura: </h3>
               <h3 className="description-bold" >

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import api from '../services/api';
@@ -25,6 +25,7 @@ const JobsProvider = ({ children }) => {
 
   const [updated, setUpdated] = useState(false)
   const [currentJob, setCurrentJob] = useState(defaultJob);
+  const [jobCandidates, setJobCandidates] = useState([]);
   const [jobs, setJobs] = useState([]);
 
   // Processo de criação da vaga

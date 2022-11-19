@@ -15,7 +15,7 @@ const JobPage = () => {
     }
   }, [])
 
-  const jobList = jobs.map((job) => {
+  const jobsList = jobs.map((job) => {
     return <ItemVaga key={job.id} job={job} isClosed={false} />
   });
 
@@ -23,9 +23,7 @@ const JobPage = () => {
     <section className='page'>
       <h1 className='title center page-title'>Vagas</h1>
       <div className='content'>
-        <ul className='jobs-list'>
-          {jobList}
-        </ul>
+        <ul className='jobs-list'>{jobsList}</ul>
       </div>
     </section>
   );
