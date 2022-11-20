@@ -1,6 +1,6 @@
 import './styles.css'
 
-const ButtonIcon = ({ leading, title, onClick, trailing, center = false }) => {
+const TextIconButton = ({ leading, title, onClick, trailing, center = false }) => {
   return (
     <div onClick={onClick} className={`button_icon ${center && "center"}`}>
       {leading && <div className='button_icon-icon'>{leading}</div>}
@@ -10,4 +10,4 @@ const ButtonIcon = ({ leading, title, onClick, trailing, center = false }) => {
   );
 }
 
-export default ButtonIcon
+export default TextIconButton

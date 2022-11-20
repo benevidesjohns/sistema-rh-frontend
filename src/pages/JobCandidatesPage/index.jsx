@@ -8,6 +8,8 @@ import { ROUTES } from '../../routes/paths'
 import CandidatesTable from '../../components/candidates-table';
 import Button from '../../components/button';
 
+import EmptyPage from '../../components/empty-page';
+
 const JobCandidatesPage = () => {
   const navigate = useNavigate()
 
@@ -21,29 +23,43 @@ const JobCandidatesPage = () => {
     }
   }, []);
 
-  const addCandidates = () => {
-    navigate(ROUTES.JOB_CANDIDATES_ADD)
-  }
-
   return (
     <section className='page'>
       <h1 className='title center page-title'>{currentJob.title}</h1>
-      <div className='content'>
+      <div className='content column'>
 
-        <div className='job-candidates-details'>
+        <div className='row btw'>
           <div className='job-candidates-description'>
             <h1 className='section-title'>Descrição</h1>
             <p>{currentJob.description}</p>
           </div>
-          <Button
-            label='Adicionar Candidatos'
-            event={addCandidates}
-          />
+          <div>
+            <Button
+              label='Adicionar Candidatos'
+              event={() => navigate(ROUTES.JOB_CANDIDATES_ADD)}
+            />
+          </div>
         </div>
 
-        <h1 className='section-title'>Candidatos a vaga de {currentJob.title}</h1>
+        <h1 className='section-title'>Candidatos atribuídos a vaga {currentJob.title}</h1>
         <div className='area-candidates-table'>
-          <CandidatesTable candidates={candidates} />
+          {candidates.length > 0
+            ?
+            <h1 className='title component-title'>
+              Quantidade de candidatos: {candidates.length}
+            </h1>
+            : ''
+          }
+          <div className="area-empty-table">
+            {candidates.length > 0
+              ?
+              <CandidatesTable candidates={candidates} />
+              :
+              <EmptyPage
+                title="Nenhum Candidato Cadastrado"
+              />
+            }
+          </div>
         </div>
 
       </div>

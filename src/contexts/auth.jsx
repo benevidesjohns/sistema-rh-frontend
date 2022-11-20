@@ -1,14 +1,17 @@
-import React, { createContext } from 'react';
+import React, { createContext, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import api from '../services/api';
 
-import {ROUTES} from '../routes/paths'
+import { ROUTES } from '../routes/paths'
+import { CandidatesContext } from './candidates';
 
 const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
+
+  const { setCandidates } = useContext(CandidatesContext)
 
   const login = async (email, password) => {
     try {
@@ -21,11 +24,9 @@ const AuthProvider = ({ children }) => {
 
       const loggedUser = await api.get(`/users/${res.data.user.id}`)
 
-      if (loggedUser) {
-        localStorage.setItem('token', res.data.token);
-        localStorage.setItem('user', JSON.stringify(loggedUser));
-        navigate(ROUTES.DASHBOARD);
-      }
+      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('user', JSON.stringify(loggedUser));
+      navigate(ROUTES.DASHBOARD);
     } catch (error) {
       console.error("Error:", JSON.stringify(error.response.data))
     }
@@ -34,6 +35,8 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('user')
     localStorage.removeItem('token')
+    localStorage.removeItem('job')
+    localStorage.removeItem('currentJob')
     navigate(ROUTES.LOGIN);
   };
 

@@ -2,7 +2,7 @@ import React, { useState, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import api from '../services/api';
-import {ROUTES} from '../routes/paths'
+import { ROUTES } from '../routes/paths'
 
 const CandidatesContext = createContext({});
 
@@ -42,12 +42,23 @@ const CandidatesProvider = ({ children }) => {
     }
   }
 
+  // Deleta um candidato
+  const deleteCandidate = async ({ id }) => {
+    try {
+      api.defaults.headers.authorization = `Bearer ${token}`;
+      await api.delete(`users/${user.data.id}/candidates/${id}`);
+    } catch (error) {
+      console.error("Error:", error.response.data)
+    }
+  }
+
   return (
     <CandidatesContext.Provider
       value={{
         candidates,
         updated,
         setUpdated,
+        deleteCandidate,
         list,
         create
       }}

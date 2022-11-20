@@ -20,6 +20,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Separadores */
 .vertical-separator {
   height: 450px;
   border-right: 1px solid rgb(211, 209, 209);
@@ -30,6 +31,7 @@ body {
   border-bottom: 1px solid rgb(211, 209, 209);
 }
 
+/* Principal (pagina e conteudo da pagina) */
 .page {
   margin-left: 295px;
 }
@@ -38,6 +40,7 @@ body {
   padding: 15px;
 }
 
+/* Flex Directions */
 .row {
   display: flex;
   flex-direction: row;
@@ -48,21 +51,32 @@ body {
   flex-direction: column;
 }
 
+/* Align - Main Axis */
+.center {
+  justify-content: center;
+}
+
+.btw {
+  justify-content: space-between;
+}
+
+/* Align - Cross Axis */
+.c-center{
+  align-items: center;
+}
+
+/* Gap */
 .gap {
   gap: 10px;
 }
 
-.card {
+/* Icones */
+.icon {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+}
 
-  border: 1px solid #191D23;
-  border-radius: 1em;
-  box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
-
-  min-height: 100px;
-  width: 500px;
-  padding: 10px;
-  gap: 10px;
+.icon svg {
+  width: 22px;
+  height: 22px;
 }

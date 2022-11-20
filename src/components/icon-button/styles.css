@@ -1,0 +1,19 @@
+.icon-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #E7EAEE;
+  box-shadow: 5px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.icon-button:hover {
+  background-color: rgb(190, 190, 190);
+  cursor: pointer;
+}
+
+.icon-button .icon svg {
+  color: red;
+}

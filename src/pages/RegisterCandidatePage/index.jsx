@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './styles.css';
 import businessWoman from '../../assets/business-woman.png';
@@ -9,6 +10,8 @@ import Input from '../../components/input';
 import Button from '../../components/button';
 
 const RegisterCandidatePage = () => {
+  const navigate = useNavigate()
+
   const { create } = useContext(CandidatesContext);
 
   const [name, setName] = useState('');

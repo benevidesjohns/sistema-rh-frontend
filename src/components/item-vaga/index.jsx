@@ -6,14 +6,15 @@ import { ROUTES } from '../../routes/paths'
 
 import Button from '../../components/button'
 import CustomSlider from '../slider';
-import ButtonIcon from '../button-icon';
+import TextIconButton from '../text-icon-button';
 import * as MdIcon from 'react-icons/md';
+import CardItem from '../card-item';
 
-const ItemVaga = ({ job, isClosed = false, showAllDetails = true }) => {
+const ItemVaga = ({ job }) => {
 
   const navigate = useNavigate();
 
-  const [showRequisites, setShowRequisites] = useState(!showAllDetails);
+  const [showRequisites, setShowRequisites] = useState(false);
 
   const toggleRequisites = () => {
     setShowRequisites(!showRequisites);
@@ -27,53 +28,42 @@ const ItemVaga = ({ job, isClosed = false, showAllDetails = true }) => {
   return (
     <li className='content-job'>
       <div className="content-job-detail">
-
-        {!showAllDetails &&
-          <h3 className='subtitle-register-confirm'>
-            Informações gerais
-          </h3>
-        }
-        <div className={`card ${!showAllDetails && 'extra-space'}`}>
-          <div className="area-title-description">
-            <h1 className='component-title'>{job.title}</h1>
-            <h3 className='description-font description-job'>{job.description}</h3>
-            {showAllDetails && <div className='opening-date-job'>
-              <h3 className="description-font-green">Data de Abertura: </h3>
-              <h3 className="description-bold" >
-                {new Date(job.createdAt).toLocaleDateString('pt-BR', {
-                  dateStyle: 'full'
-                })}
-              </h3>
-            </div>}
-          </div>
-
-          {showAllDetails && <div className='area-status'>
-            <div className={`content-status status-${isClosed ? "close" : "open"}`}>
-              <h1 className="description-font-green">{isClosed ? 'Fechado' : 'Aberto'}</h1>
+        <CardItem
+          title={job.title}
+          description={job.description}
+          infos={[{
+            key: "Data de Abertura:",
+            value: new Date(job.createdAt).toLocaleDateString('pt-BR', {
+              dateStyle: 'full'
+            })
+          }]}
+          trailing={
+            <div className='column c-center'>
+              <div className={`content-status status-${job.open ? "open" : "close"}`}>
+                <h1 className="description-font-green">{job.open ? 'Aberto' : 'Fechado'}</h1>
+              </div>
             </div>
-          </div>}
+          }
+        />
 
-        </div>
-
-        {showAllDetails && <ButtonIcon
+        <TextIconButton
           title={`${showRequisites ? "Esconder" : "Exibir"} Requisitos`}
           onClick={toggleRequisites}
           trailing={showRequisites ? <MdIcon.MdArrowDropUp /> : <MdIcon.MdArrowDropDown />}
-        />}
+        />
 
-        {!showAllDetails && <h3 className='subtitle-register-confirm'>Requisitos</h3>}
         {showRequisites && <CustomSlider values={job.requisites} />}
 
       </div>
 
-      {showAllDetails && <div className="area-candidates">
+      <div className="area-candidates">
         <h1 className='title component-title'>Candidatos</h1>
         <h1 className='description-bold candidates-count'>5</h1>
         <Button
           label='Visualizar Candidatos'
           event={showJobCandidates}
         />
-      </div>}
+      </div>
 
     </li>
   );

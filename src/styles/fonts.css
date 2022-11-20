@@ -1,8 +1,3 @@
-/* Aux Classes */
-.center {
-  justify-content: center;
-}
-
 .black {
   color: #191D23;
 }
@@ -56,6 +51,7 @@
   color: #047857;
   font-weight: 600;
   font-size: 16px;
+  white-space: nowrap;
 }
 
 .description-bold {

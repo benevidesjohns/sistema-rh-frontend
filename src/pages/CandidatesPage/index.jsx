@@ -1,59 +1,79 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import * as MdIcon from 'react-icons/md';
 
 import './styles.css';
 import { CandidatesContext } from '../../contexts/candidates'
-import CandidatesTable from '../../components/candidates-table';
-import ItemVaga from '../../components/item-vaga';
+import { ROUTES } from '../../routes/paths'
+
+import CardItem from '../../components/card-item';
+import IconButton from '../../components/icon-button';
+import EmptyPage from '../../components/empty-page';
 
 const CandidatesPage = () => {
-  const { list, updated, setUpdated, candidates } = useContext(CandidatesContext);
+  const {
+    list,
+    candidates,
+    deleteCandidate
+  } = useContext(CandidatesContext);
+
+  const [candidatesList, setCandidatesList] = useState(false)
 
   useEffect(() => {
-    if (!updated) {
+    if (!candidatesList) {
       list();
-      setUpdated(true);
+      setCandidatesList(true);
     }
-  }, []);
+  }, [candidatesList]);
+
+  const onClickDelete = async ({ id }) => {
+    await deleteCandidate({ id: id });
+    setCandidatesList(false);
+    console.log("Deleted candidate", id);
+  }
+
+  const CandidatesList = () => {
+    return (
+      <ul className='candidates-list'>
+        {
+          candidates.map((candidate, index) => {
+            return (
+              <div key={index} className="column c-center gap">
+                <CardItem
+                  title={candidate.name}
+                  infos={[
+                    { key: "Email:", value: candidate.email },
+                    { key: "Telefone:", value: candidate.phone },
+                  ]}
+                  trailing={
+                    <div className='column c-center'>
+                      <IconButton
+                        icon={<MdIcon.MdDelete />}
+                        onClick={() => onClickDelete({ id: candidate.id })}
+                      />
+                    </div>
+                  }
+                />
+                <div className='horizontal-separator'></div>
+              </div>
+            )
+          })
+        }
+      </ul>
+    );
+  }
 
   return (
     <section className='page'>
       <h1 className='title center page-title'>Candidatos</h1>
       <div className='content'>
-        <ul className='candidates-list'>
-          {
-            candidates.map((candidate, index) => {
-              return (
-                <li key={index} className="card">
-                  <div className='card-candidate-content'>
-                    <h1 className='component-title'>{candidate.name}</h1>
-                    <div className='row gap'>
-                      <h3 className="description-font-green">Email: </h3>
-                      <h3 className="description-bold" >{candidate.email}</h3>
-                    </div>
-                    <div className='row gap'>
-                      <h3 className="description-font-green">Telefone: </h3>
-                      <h3 className="description-bold" >{candidate.phone}</h3>
-                    </div>
-                  </div>
-
-                  {/* <ItemVaga
-                  job={{
-                    title: candidate.name,
-                    description: `${candidate.email}\n${candidate.phone}`,
-                    requisites: {
-                      independente: 2,
-                      sociavel: 2,
-                      paciente: 2,
-                      vigilante: 2,
-                    }
-                  }}
-                  showAllDetails={false}
-                /> */}
-                </li>
-              )
-            })
-          }
-        </ul>
+        {candidates.length > 0
+          ? <CandidatesList />
+          : <EmptyPage
+            title="Nenhum Candidato Cadastrado"
+            label="Cadastrar Candidato"
+            path={ROUTES.CREATE_CANDIDATE}
+          />
+        }
       </div>
     </section>
   );

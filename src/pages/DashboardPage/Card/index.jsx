@@ -1,7 +1,7 @@
 import './styles.css'
 
 import Button from '../../../components/button';
-import ButtonIcon from '../../../components/button-icon';
+import TextIconButton from '../../../components/text-icon-button';
 
 import * as MdIcon from 'react-icons/md';
 
@@ -13,21 +13,21 @@ const PendingReviews = () => {
         <MdIcon.MdPerson />
         <p>João da Silva</p>
         <p>Operador</p>
-        <ButtonIcon  leading={<MdIcon.MdSend />} title='Reenviar'/>
+        <TextIconButton  leading={<MdIcon.MdSend />} title='Reenviar'/>
       </div>
 
       <div className="pending-job">
         <MdIcon.MdPerson />
         <p>João da Silva</p>
         <p>Operador</p>
-        <ButtonIcon leading={<MdIcon.MdQueryBuilder />} title='Reenviar'/>
+        <TextIconButton leading={<MdIcon.MdQueryBuilder />} title='Reenviar'/>
       </div>
 
       <div className="pending-job">
         <MdIcon.MdPerson />
         <p>João da Silva</p>
         <p>Operador</p>
-        <ButtonIcon leading={<MdIcon.MdSend />} title='Reenviar'/>
+        <TextIconButton leading={<MdIcon.MdSend />} title='Reenviar'/>
       </div>
     </div>
   );
@@ -48,7 +48,7 @@ const RecentActivities = () => {
         </div>
 
         <div className="button-job">
-          <ButtonIcon title='Acessar'/>
+          <TextIconButton title='Acessar'/>
         </div>
       </div>
 
@@ -64,7 +64,7 @@ const RecentActivities = () => {
         </div>
 
         <div className="button-job">
-          <ButtonIcon title='Acessar' />
+          <TextIconButton title='Acessar' />
         </div>
       </div>
 

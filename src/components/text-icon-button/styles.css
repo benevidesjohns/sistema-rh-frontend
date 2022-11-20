@@ -1,28 +1,20 @@
-.button_icon {
+.text-icon-button {
   background-color: #E7EAEE;
   box-shadow: 5px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 5px;
   padding: 8px;
 }
 
-.button_icon:hover {
+.text-icon-button:hover {
   background-color: #10B981;
   cursor: pointer;
 }
 
-.button_icon-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-right: 5px;
-}
-
-.button_icon-icon svg {
-  width: 22px;
-  height: 22px;
+.text-icon-button .icon svg {
   color: #191D23;
 }
 

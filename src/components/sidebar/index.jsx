@@ -4,10 +4,11 @@ import * as MdIcon from 'react-icons/md';
 
 import './styles.css';
 import { AuthContext } from '../../contexts/auth';
-import {ROUTES} from '../../routes/paths'
+import { ROUTES } from '../../routes/paths'
 
-import ButtonIcon from "../button-icon";
+import TextIconButton from "../text-icon-button";
 import MiniLogo from '../mini-logo';
+import { JobsContext } from '../../contexts/jobs';
 
 const DropdownMenu = ({ title, children, icon }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -16,7 +17,7 @@ const DropdownMenu = ({ title, children, icon }) => {
 
   return (
     <section>
-      <ButtonIcon
+      <TextIconButton
         leading={icon}
         title={title}
         onClick={toggleMenu}
@@ -42,9 +43,11 @@ const Sidebar = () => {
 
   const user = JSON.parse(localStorage.getItem('user'))
   const { logout } = useContext(AuthContext);
+  const { setUpdated } = useContext(JobsContext);
 
   const onLogout = () => {
     logout();
+    setUpdated(false);
   }
 
   const navigate = useNavigate();
@@ -55,7 +58,7 @@ const Sidebar = () => {
       <section className='sidebar-section'>
         <h2 className="sidebar-title">Menu</h2>
         <nav className="sidebar-menu">
-          <ButtonIcon
+          <TextIconButton
             key='sidebar-item-dashboard'
             leading={<MdIcon.MdSpaceDashboard />}
             title='Dashboard'
@@ -77,7 +80,7 @@ const Sidebar = () => {
               { title: 'Criar Vaga', path: ROUTES.CREATE_JOB },
             ]} icon={<MdIcon.MdBusiness />}
           />
-          <ButtonIcon
+          <TextIconButton
             key='sidebar-item-settings'
             leading={<MdIcon.MdSettings />}
             title='Configurações'
@@ -97,13 +100,13 @@ const Sidebar = () => {
             <p>{user.data.email}</p>
           </div>
         </div>
-        <ButtonIcon
-            key='sidebar-item-logout'
-            leading={<MdIcon.MdLogout />}
-            title='Sair'
-            center={true}
-            onClick={onLogout}
-          />
+        <TextIconButton
+          key='sidebar-item-logout'
+          leading={<MdIcon.MdLogout />}
+          title='Sair'
+          center={true}
+          onClick={onLogout}
+        />
       </section>
     </section>
   );

@@ -1,9 +1,11 @@
 import { useContext, useEffect } from 'react';
 
 import './styles.css';
+import { ROUTES } from '../../routes/paths'
+import { JobsContext } from '../../contexts/jobs';
 
 import ItemVaga from '../../components/item-vaga';
-import { JobsContext } from '../../contexts/jobs';
+import EmptyPage from '../../components/empty-page';
 
 const JobsPage = () => {
   const { list, updated, setUpdated, jobs } = useContext(JobsContext);
@@ -15,16 +17,34 @@ const JobsPage = () => {
     }
   }, [])
 
-  const jobsList = jobs.map((job) => {
-    return <ItemVaga key={job.id} job={job} isClosed={false} />
-  });
+  const JobsList = () => {
+    return (
+      <ul className='jobs-list'>{
+        jobs.map((job) => {
+          return (
+            <div key={job.id}>
+              <ItemVaga job={job} />
+              <div className='horizontal-separator'></div>
+            </div>
+          )
+        })
+      }</ul>
+
+    )
+  }
 
   return (
     <section className='page'>
       <h1 className='title center page-title'>Vagas</h1>
-      <div className='content'>
-        <ul className='jobs-list'>{jobsList}</ul>
-      </div>
+      <div className='content'>{
+        jobs.length > 0
+          ? <JobsList />
+          : <EmptyPage
+            title="Nenhuma Vaga Cadastrada"
+            label="Cadastrar Vaga"
+            path={ROUTES.CREATE_JOB}
+          />
+      }</div>
     </section>
   );
 }

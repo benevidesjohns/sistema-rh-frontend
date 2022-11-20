@@ -1,16 +1,9 @@
-import * as MdIcon from 'react-icons/md';
-
 import './styles.css'
 
-import ButtonIcon from '../../../../components/button-icon';
-import { useContext } from 'react';
-import { CandidatesContext } from '../../../../contexts/candidates';
-
-import ItemVaga from '../../../../components/item-vaga';
+import CardItem from '../../../../components/card-item';
+import CustomSlider from '../../../../components/slider';
 
 const ThirdStep = () => {
-  const { candidates } = useContext(CandidatesContext);
-
   const currentJob = JSON.parse(localStorage.getItem('job'));
 
   return (
@@ -18,7 +11,13 @@ const ThirdStep = () => {
       <div className="step-area third-step-area">
         <h1 className='title section-title' >Confirmar cadastro da vaga</h1>
         <div className="area-register-confirm">
-          <ItemVaga job={currentJob} isClosed={false} showAllDetails={false} />
+          <h3 className='component-title'>Informações gerais</h3>
+          <CardItem
+            title={currentJob.title}
+            description={currentJob.description}
+          />
+          <h3 className='component-title'>Requisitos</h3>
+          <CustomSlider values={currentJob.requisites} />
         </div>
       </div>
     </section>
