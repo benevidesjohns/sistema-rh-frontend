@@ -1,3 +1,14 @@
+.extra-space {
+  margin-left: 10px;
+  margin-bottom: 40px;
+}
+
+.subtitle-register-confirm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .content-job {
   list-style: none;
   display: flex;
@@ -15,26 +26,12 @@
   gap: 20px;
 }
 
-.area-details {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  border: 1px solid #191D23;
-  border-radius: 1em;
-  box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
-
-  height: 100px;
-  width: 500px;
-  padding: 10px;
-  gap: 10px;
-}
-
 .area-title-description {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .opening-date-job {

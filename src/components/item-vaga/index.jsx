@@ -16,15 +16,24 @@ const ItemVaga = ({ job, isClosed = false, showAllDetails = true }) => {
   const [showRequisites, setShowRequisites] = useState(!showAllDetails);
 
   const toggleRequisites = () => {
-    console.log(job.requisites)
     setShowRequisites(!showRequisites);
+  }
+
+  const showJobCandidates = () => {
+    localStorage.setItem("currentJob", JSON.stringify(job));
+    navigate(ROUTES.JOB_CANDIDATES);
   }
 
   return (
     <li className='content-job'>
       <div className="content-job-detail">
-        <div className="area-details">
 
+        {!showAllDetails &&
+          <h3 className='subtitle-register-confirm'>
+            Informações gerais
+          </h3>
+        }
+        <div className={`card ${!showAllDetails && 'extra-space'}`}>
           <div className="area-title-description">
             <h1 className='component-title'>{job.title}</h1>
             <h3 className='description-font description-job'>{job.description}</h3>
@@ -52,6 +61,7 @@ const ItemVaga = ({ job, isClosed = false, showAllDetails = true }) => {
           trailing={showRequisites ? <MdIcon.MdArrowDropUp /> : <MdIcon.MdArrowDropDown />}
         />}
 
+        {!showAllDetails && <h3 className='subtitle-register-confirm'>Requisitos</h3>}
         {showRequisites && <CustomSlider values={job.requisites} />}
 
       </div>
@@ -59,7 +69,10 @@ const ItemVaga = ({ job, isClosed = false, showAllDetails = true }) => {
       {showAllDetails && <div className="area-candidates">
         <h1 className='title component-title'>Candidatos</h1>
         <h1 className='description-bold candidates-count'>5</h1>
-        <Button label='Revisar candidatos' event={() => navigate(ROUTES.JOB_CANDIDATES)} />
+        <Button
+          label='Visualizar Candidatos'
+          event={showJobCandidates}
+        />
       </div>}
 
     </li>

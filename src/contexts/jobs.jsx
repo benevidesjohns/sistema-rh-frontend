@@ -60,7 +60,7 @@ const JobsProvider = ({ children }) => {
       localStorage.removeItem('job')
       setCurrentJob(defaultJob)
       setUpdated(false)
-      navigate(ROUTES.JOBS);
+      navigate(ROUTES.JOB_CANDIDATES_ADD);
     } catch (error) {
       console.error("Error:", error.response.data)
     }

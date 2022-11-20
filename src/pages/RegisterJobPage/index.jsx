@@ -58,7 +58,7 @@ const RegisterJobPage = () => {
                 validator: secondStepValidator
               },
               {
-                label: 'Link',
+                label: 'Confirmar',
                 name: 'Etapa 3',
                 content: <ThirdStep />,
                 // validator: step3Validator

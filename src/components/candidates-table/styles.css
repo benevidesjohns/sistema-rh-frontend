@@ -1,0 +1,68 @@
+/* .line-candidate {
+  width: 200px;
+  background-color: gray;
+}
+
+.candidates-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.candidate-item-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+} */
+
+.jobcandidates-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 20px;
+
+  border-radius: 1em;
+  box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
+  padding: 20px;
+}
+
+/* .table-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-column-title {
+
+}
+
+.table-column-data {
+
+}
+
+.table-column-data li{
+  list-style: none;
+} */
+
+.table-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+
+  gap: 20px;
+  width: 750px;
+}
+
+.table-row-item  {
+  flex: 5;
+}
+
+.table-row-checkbox {
+  flex: 1;
+}

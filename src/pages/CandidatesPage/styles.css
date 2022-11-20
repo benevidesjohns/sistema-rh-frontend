@@ -1,3 +1,15 @@
+.candidates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .candidates-list li {
   list-style: none;
+}
+
+.card-candidate-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
