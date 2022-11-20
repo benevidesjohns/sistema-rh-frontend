@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import './styles.css';
 import { ROUTES } from '../../routes/paths'
@@ -8,14 +8,20 @@ import ItemVaga from '../../components/item-vaga';
 import EmptyPage from '../../components/empty-page';
 
 const JobsPage = () => {
-  const { list, updated, setUpdated, jobs } = useContext(JobsContext);
+  const { list, jobs } = useContext(JobsContext);
+
+  const [jobsList, setJobsList] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (!updated) {
-      list()
-      setUpdated(true)
-    }
-  }, [])
+    setTimeout(async () => {
+      if (!jobsList) {
+        await list()
+        setJobsList(true);
+      }
+      setLoading(false)
+    }, 500);
+  }, [jobsList]);
 
   const JobsList = () => {
     return (
@@ -38,8 +44,10 @@ const JobsPage = () => {
       <h1 className='title center page-title'>Vagas</h1>
       <div className='content'>{
         jobs.length > 0
-          ? <JobsList />
-          : <EmptyPage
+          ?
+          !loading && <JobsList />
+          :
+          !loading && <EmptyPage
             title="Nenhuma Vaga Cadastrada"
             label="Cadastrar Vaga"
             path={ROUTES.CREATE_JOB}

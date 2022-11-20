@@ -17,12 +17,16 @@ const CandidatesPage = () => {
   } = useContext(CandidatesContext);
 
   const [candidatesList, setCandidatesList] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (!candidatesList) {
-      list();
-      setCandidatesList(true);
-    }
+    setTimeout(async () => {
+      if (!candidatesList) {
+        await list()
+        setCandidatesList(true);
+      }
+      setLoading(false)
+    }, 500);
   }, [candidatesList]);
 
   const onClickDelete = async ({ id }) => {
@@ -65,18 +69,21 @@ const CandidatesPage = () => {
   return (
     <section className='page'>
       <h1 className='title center page-title'>Candidatos</h1>
-      <div className='content'>
-        {candidates.length > 0
-          ? <CandidatesList />
-          : <EmptyPage
+      <div className='content'>{
+        candidates.length > 0
+          ?
+          !loading && <CandidatesList />
+          :
+          !loading && <EmptyPage
             title="Nenhum Candidato Cadastrado"
             label="Cadastrar Candidato"
             path={ROUTES.CREATE_CANDIDATE}
           />
-        }
-      </div>
+
+      }</div>
     </section>
   );
 }
+
 
 export default CandidatesPage;
