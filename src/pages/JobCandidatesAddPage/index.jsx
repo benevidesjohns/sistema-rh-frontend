@@ -34,20 +34,21 @@ const JobCandidatesAddPage = () => {
           </div>
 
           <div className="area-candidates-table">
+          <div className="horizontal-separator"></div>
             <h1 className='title center component-title'>
               Selecione os candidatos para enviar o e-mail
             </h1>
-            {candidates.length > 0 ? <h1 className='title component-title'>Quantidade de candidatos: {candidates.length}</h1> : ''}
-            <div className="area-empty-table">
+            <div className={candidates.length === 0 ? 'area-empty-table' : ''}>
               {candidates.length > 0
                 ? <CandidatesTable candidates={candidates} />
                 : <EmptyPage
-                  title="Nenhum Candidato Cadastrado"
-                  label="Cadastrar Candidato"
-                  path={ROUTES.CREATE_CANDIDATE}
+                title="Nenhum Candidato Cadastrado"
+                label="Cadastrar Candidato"
+                path={ROUTES.CREATE_CANDIDATE}
                 />
               }
             </div>
+            {candidates.length > 0 ? <h1 className='title component-title'>Quantidade de candidatos: {candidates.length}</h1> : ''}
           </div>
         </div>
       </div>

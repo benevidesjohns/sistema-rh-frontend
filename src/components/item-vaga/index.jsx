@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import './styles.css';
@@ -9,9 +9,9 @@ import CustomSlider from '../slider';
 import TextIconButton from '../text-icon-button';
 import * as MdIcon from 'react-icons/md';
 import CardItem from '../card-item';
+import { JobsContext } from '../../contexts/jobs';
 
 const ItemVaga = ({ job }) => {
-
   const navigate = useNavigate();
 
   const [showRequisites, setShowRequisites] = useState(false);
@@ -58,7 +58,7 @@ const ItemVaga = ({ job }) => {
 
       <div className="area-candidates">
         <h1 className='title component-title'>Candidatos</h1>
-        <h1 className='description-bold candidates-count'>5</h1>
+        <h1 className='description-bold candidates-count'>{job.candidates.length}</h1>
         <Button
           label='Visualizar Candidatos'
           event={showJobCandidates}

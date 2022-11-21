@@ -2,7 +2,7 @@ import React, { useState, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import api from '../services/api';
-import {ROUTES} from '../routes/paths'
+import { ROUTES } from '../routes/paths'
 
 const JobsContext = createContext({});
 
@@ -25,8 +25,8 @@ const JobsProvider = ({ children }) => {
   }
 
   const [updated, setUpdated] = useState(false)
-  const [currentJob, setCurrentJob] = useState(defaultJob);
-  const [jobCandidates, setJobCandidates] = useState([]);
+  const [creatingJob, setCreatingJob] = useState(defaultJob);
+  const [candidates, setCandidates] = useState([]);
   const [jobs, setJobs] = useState([]);
 
   // Processo de criação da vaga
@@ -41,7 +41,7 @@ const JobsProvider = ({ children }) => {
         vigilante: values[3],
       }
     };
-    setCurrentJob(updatedJob);
+    setCreatingJob(updatedJob);
     localStorage.setItem('job', JSON.stringify(updatedJob));
     console.log("Update:", {
       title: updatedJob.title,
@@ -54,11 +54,10 @@ const JobsProvider = ({ children }) => {
   const create = async () => {
     try {
       api.defaults.headers.authorization = `Bearer ${token}`;
-      const res = await api.post(`users/${user.data.id}/vagas`, currentJob)
-
+      const res = await api.post(`users/${user.data.id}/vagas`, creatingJob)
       console.log("Created Job Successfully:", res.data);
       localStorage.removeItem('job')
-      setCurrentJob(defaultJob)
+      setCreatingJob(defaultJob)
       setUpdated(false)
       navigate(ROUTES.JOB_CANDIDATES_ADD);
     } catch (error) {
@@ -70,8 +69,53 @@ const JobsProvider = ({ children }) => {
   const list = async () => {
     try {
       api.defaults.headers.authorization = `Bearer ${token}`;
-      const res = await api.get(`users/${user.data.id}/vagas`);
+      const res = await api.get(`users/${user.data.id}/vagas/`);
       setJobs(res.data);
+    } catch (error) {
+      console.error("Error:", error.response.data)
+    }
+  }
+
+  const listCandidates = async () => {
+    try {
+      let currentJob = JSON.parse(localStorage.getItem("currentJob"));
+      api.defaults.headers.authorization = `Bearer ${token}`;
+
+      const resJobCandidates = await api.get(
+        `users/${user.data.id}/vagas/${currentJob.id}/candidates`
+      );
+
+      const resCandidates = await api.get(
+        `users/${user.data.id}/candidates`
+      );
+
+      const candidatesId = resJobCandidates.data.map(c => c.candidateId)
+
+      let result = []
+      resCandidates.data.map((candidate) => {
+        const index = candidatesId.indexOf(candidate.id)
+        if (index > -1) {
+          const {
+            interviewed,
+            quizNote,
+            quizStatus,
+            requisites
+          } = resJobCandidates.data[index]
+
+          result.push({
+            interviewed: interviewed,
+            quizNote: quizNote,
+            quizStatus: quizStatus,
+            requisites: requisites,
+            id: candidate.id,
+            email: candidate.email,
+            name: candidate.name,
+            phone: candidate.phone,
+          })
+        }
+      })
+
+      setCandidates(result);
     } catch (error) {
       console.error("Error:", error.response.data)
     }
@@ -81,10 +125,12 @@ const JobsProvider = ({ children }) => {
     <JobsContext.Provider
       value={{
         jobs,
-        currentJob,
+        candidates,
+        creatingJob,
         updated,
         setUpdated,
         updateCurrentJob,
+        listCandidates,
         list,
         create
       }}

@@ -6,19 +6,19 @@ import Input from "../../../../components/input";
 import { JobsContext } from "../../../../contexts/jobs";
 
 const FirstStep = () => {
-  const { currentJob, updateCurrentJob } = useContext(JobsContext)
+  const { creatingJob, updateCurrentJob } = useContext(JobsContext)
 
-  const [title, setTitle] = useState(currentJob.title);
-  const [description, setDescription] = useState(currentJob.description);
+  const [title, setTitle] = useState(creatingJob.title);
+  const [description, setDescription] = useState(creatingJob.description);
 
   const changeTitle = (inputTitle) => {
     setTitle(inputTitle.target.value);
-    updateCurrentJob({ ...currentJob, title: inputTitle.target.value })
+    updateCurrentJob({ ...creatingJob, title: inputTitle.target.value })
   };
 
   const changeDescription = (inputDescription) => {
     setDescription(inputDescription.target.value);
-    updateCurrentJob({ ...currentJob, description: inputDescription.target.value })
+    updateCurrentJob({ ...creatingJob, description: inputDescription.target.value })
   };
 
   return (
