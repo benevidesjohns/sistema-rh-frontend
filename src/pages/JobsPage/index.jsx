@@ -42,16 +42,18 @@ const JobsPage = () => {
   return (
     <section className='page'>
       <h1 className='title center page-title'>Vagas</h1>
-      <div className='content'>{
+      <div className='content row center'>{
         jobs.length > 0
           ?
           !loading && <JobsList />
           :
-          !loading && <EmptyPage
-            title="Nenhuma Vaga Cadastrada"
-            label="Cadastrar Vaga"
-            path={ROUTES.CREATE_JOB}
-          />
+          !loading && <div className="area-empty-table">
+            <EmptyPage
+              title="Nenhuma Vaga Cadastrada"
+              label="Cadastrar Vaga"
+              path={ROUTES.CREATE_JOB}
+            />
+          </div>
       }</div>
     </section>
   );

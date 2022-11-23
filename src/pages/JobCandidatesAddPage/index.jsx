@@ -12,8 +12,11 @@ import { JobsContext } from '../../contexts/jobs';
 
 const JobCandidatesAddPage = () => {
   const { list, candidates } = useContext(CandidatesContext);
-  const { listCandidates, candidates: jobCandidates } = useContext(JobsContext);
-  const { addCandidates } = useContext(JobsContext);
+  const {
+    addCandidates, listCandidates, candidates: jobCandidates
+  } = useContext(JobsContext);
+
+  const currentJob = JSON.parse(localStorage.getItem("currentJob"));
 
   const [filteredCandidates, setFilteredCandidates] = useState([])
   const [candidatesList, setCandidatesList] = useState(false)
@@ -43,8 +46,12 @@ const JobCandidatesAddPage = () => {
   }
 
   const enviarEmail = async () => {
-    // alert("Candidatos adicionados com sucesso!")
-    await addCandidates();
+    localStorage.removeItem("currentCandidate");
+    const cands = JSON.parse(localStorage.getItem("selectedCandidates"));
+    if (cands) {
+      setCandidatesList(false);
+      await addCandidates();
+    }
   }
 
   return (
@@ -52,9 +59,11 @@ const JobCandidatesAddPage = () => {
       <h1 className='title center page-title'>Adicionar Candidatos</h1>
       <div className='content column gap'>
         <div className="area-link-candidate">
-          <h1 className='title center section-title'>
-            Enviar formulário para  os candidatos para a vaga de Designer
-          </h1>
+          <label className='title center section-title'>
+            {"Enviar formulário para os candidatos para a vaga de"}
+            <span className='component-title'>{currentJob.title}</span>
+          </label>
+
           <div className="area-button-link" >
             <TextIconButton
               leading={<MdIcon.MdAddLink />}

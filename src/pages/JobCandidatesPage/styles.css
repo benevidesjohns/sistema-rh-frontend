@@ -5,31 +5,25 @@
 .job-candidates-description {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.area-requirements {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
 }
 
-.area-inf-requirements {
+.area-description-jobcandidates {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
-  gap: 50px;
+  width: 100%;
+  padding-left: 250px;
 }
 
 .area-inf-candidate-requirements {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
   gap: 20px;
 
@@ -43,11 +37,11 @@
 
 .area-reference-requirements {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 1em;
   box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
 }
@@ -61,16 +55,15 @@
   box-shadow: 0 1px 3px rgb(0 0 0 / 40%) inset, 0 -1px 3px rgb(0 0 0 / 40%) inset;
 }
 
-.area-bolinha-de-golfe {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  gap: 5px;
-
-  width: 500px;
-}
-
 .red {
   background-color: #991B1B;
+}
+
+.area-inf-candidate-requirements .row.gap .component-title {
+  font-size: 18px;
+}
+
+.area-reference-requirements .section-title,
+.area-reference-requirements .component-title {
+  font-size: 18px;
 }

@@ -47,7 +47,7 @@ const AreaLogin = () => {
           typeInput="password"
         />
         <div className="forgot-password">
-          <a href="" className='font-link'>Esqueci minha senha</a>
+          <a className='font-link'>Esqueci minha senha</a>
         </div>
         <Button label='Entrar' />
       </form>

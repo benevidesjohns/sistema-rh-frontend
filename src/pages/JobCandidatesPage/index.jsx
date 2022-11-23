@@ -54,9 +54,11 @@ const JobCandidatesPage = () => {
       <div className='content column area-job-candidates'>
 
         <div className='row btw'>
-          <div className='job-candidates-description'>
-            <h1 className='section-title'>Descrição</h1>
-            <p>{currentJob.description}</p>
+          <div className='area-description-jobcandidates'>
+            <div className='job-candidates-description'>
+              <h1 className='section-title'>Descrição</h1>
+              <p>{currentJob.description}</p>
+            </div>
           </div>
           <div>
             <Button
@@ -68,45 +70,46 @@ const JobCandidatesPage = () => {
 
         <div className="horizontal-separator"></div>
 
-        <h1 className='section-title'>Requisitos</h1>
-        <div className="area-inf-requirements">
-          <div className='area-requirements'>
-            <div className='row'>
-              <CustomSlider
-                values={currentJob.requisites}
-                candidateValues={
-                  candidate && updated &&
-                  candidate.VagasCandidates.requisites
-                }
-              />
-            </div>
+        <h1 className='title center section-title'>Requisitos</h1>
+        <div className="row center c-center gap">
+          <div className='row'>
+            <CustomSlider
+              values={currentJob.requisites}
+              candidateValues={
+                candidate && updated &&
+                candidate.VagasCandidates.requisites
+              }
+            />
           </div>
           <div className="area-inf-candidate-requirements">
-            <div className="area-bolinha-de-golfe">
+            <div className='row c-center gap'>
               <div className='bolinha-de-golfe'></div>
               <h1 className='component-title'>Requisitos da vaga</h1>
             </div>
 
-            <div className="area-bolinha-de-golfe">
+            <div className="row c-center gap">
               <div className='bolinha-de-golfe red'></div>
               <h1 className='component-title'>Requisitos da candidato</h1>
             </div>
 
             <div className="horizontal-separator"></div>
 
-            <h1 className='area-reference-requirements component-title'>
-              {candidate
-                ? `Comparando requisitos do candidato ${candidate.name}`
-                : "Selecione um candidato para comparar"
-              }
-            </h1>
+            <div className='area-reference-requirements'>
+              <h1 className='section-title'>
+                {candidate
+                  ? "Comparando requisitos do candidato"
+                  : "Selecione um candidato para comparar"
+                }
+              </h1>
+              {candidate && <h1 className='component-title'>{candidate.name}</h1>}
+            </div>
           </div>
         </div>
 
         <div className="horizontal-separator"></div>
 
         <h1 className='title center section-title'>
-          Candidatos atribuídos a vaga {currentJob.title}
+          Candidatos atribuídos a vaga
         </h1>
         <div className={candidates.length === 0 ? 'area-empty' : 'row center'}>
           {candidates.length > 0

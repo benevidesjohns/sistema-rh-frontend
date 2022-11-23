@@ -69,7 +69,7 @@ const CandidatesPage = () => {
   return (
     <section className='page'>
       <h1 className='title center page-title'>Candidatos</h1>
-      <div className='content'>{
+      <div className='content row center'>{
         candidates.length > 0
           ?
           !loading && <CandidatesList />

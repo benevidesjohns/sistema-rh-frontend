@@ -37,8 +37,11 @@
   gap: 20px;
 }
 
-.table-row-item  {
+.table-row-item {
   flex: 5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .table-row-checkbox {

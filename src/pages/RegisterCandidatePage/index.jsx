@@ -4,10 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import './styles.css';
 import businessWoman from '../../assets/business-woman.png';
 import { CandidatesContext } from '../../contexts/candidates';
-import {ROUTES} from '../../routes/paths'
+import { ROUTES } from '../../routes/paths'
 
 import Input from '../../components/input';
 import Button from '../../components/button';
+import MiniPopup from '../../components/pop-up';
+
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 const RegisterCandidatePage = () => {
   const navigate = useNavigate()
@@ -62,7 +66,15 @@ const RegisterCandidatePage = () => {
                   event={() => navigate(ROUTES.DASHBOARD)}
                   isCancel={true}
                 />
-                <Button label='Cadastrar' event={submit} />
+                <Button
+                  label='Cadastrar'
+                  event={(e) => submit(e)}
+                />
+                {/* <MiniPopup
+                  label="Cadastrar"
+                  content={<h1>Teste</h1>}
+                  submit={(e) => submit(e)}
+                /> */}
               </div>
             </div>
           </div>

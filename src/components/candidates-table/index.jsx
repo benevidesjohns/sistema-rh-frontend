@@ -7,11 +7,12 @@ import TextIconButton from '../text-icon-button';
 
 const CandidatesTable = ({ candidates, all = false, onClickCompare }) => {
   const [selectedCandidates, setSelectedCandidates] = useState([])
+  const [checkedAll, setCheckedAll] = useState(false);
   const [checked, setChecked] = useState(
     new Array(candidates.length).fill(false)
   );
 
-  const values = ["", "Nome", "Email", "Telefone"]
+  const values = ["Nome", "Email", "Telefone"]
 
   const allValues = [
     "Nome", "Email", "Telefone", "Questionário", "Nota", "Afinidade", "Requisitos"
@@ -33,14 +34,33 @@ const CandidatesTable = ({ candidates, all = false, onClickCompare }) => {
   }
 
   const Cabecalho = ({ values }) => {
+    const handleChange = () => {
+      const listCandidates = !checkedAll ? [...candidates] : [];
+      setSelectedCandidates(listCandidates);
+      localStorage.setItem(
+        "selectedCandidates",
+        JSON.stringify(listCandidates)
+      );
+
+      setChecked(new Array(candidates.length).fill(!checkedAll));
+      setCheckedAll(!checkedAll)
+    }
+
     return (
       <div className={`table-row ${all ? 'w1200' : 'w800'}`}>
+        {!all &&
+          <input
+            className='table-row-checkbox'
+            type='checkbox'
+            name='check-candidate'
+            key={`all-checkbox`}
+            onChange={handleChange}
+            checked={checkedAll}
+          />
+        }
         {values.map((value) => {
           return (
-            <p
-              key={value}
-              className={`table-row-${value ? 'item' : 'checkbox'}`}
-            >{value}</p>
+            <p key={value} className='table-row-item'>{value}</p>
           )
         })}
       </div>
@@ -113,7 +133,7 @@ const CandidatesTable = ({ candidates, all = false, onClickCompare }) => {
             onClick={
               () => {
                 candidate.VagasCandidates.requisites &&
-                onClickCompare(candidate)
+                  onClickCompare(candidate)
               }
             }
           />

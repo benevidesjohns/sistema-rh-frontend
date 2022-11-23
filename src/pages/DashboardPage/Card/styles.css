@@ -10,9 +10,9 @@
   border-radius: 0.5em;
   box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
   min-width: 500px;
-  min-height: 100px;
+  min-height: 285px;
   max-width: 750px;
-  max-height: 280px;
+  max-height: 285px;
 
   gap: 20px;
 }
@@ -39,6 +39,7 @@
   border-radius: 1em;
   box-shadow: 0 0.200em 1.500em rgba(0, 0, 0, 0.25);
   padding-top: 10px;
+  width: 170px;
 }
 
 .job-office p {
@@ -96,4 +97,10 @@
 
 .grid-item:nth-child(2) {
   grid-column-start: 2;
+}
+
+.job-office .component-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

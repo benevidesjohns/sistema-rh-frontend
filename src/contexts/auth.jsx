@@ -37,6 +37,7 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem('token')
     localStorage.removeItem('job')
     localStorage.removeItem('currentJob')
+    localStorage.removeItem('currentCandidate')
     navigate(ROUTES.LOGIN);
   };
 

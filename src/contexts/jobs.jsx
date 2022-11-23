@@ -51,7 +51,8 @@ const JobsProvider = ({ children }) => {
       api.defaults.headers.authorization = `Bearer ${token}`;
       const res = await api.post(`users/${user.data.id}/vagas`, creatingJob)
       console.log("Created Job Successfully:", res.data);
-      localStorage.removeItem('job')
+      localStorage.removeItem('job');
+      localStorage.setItem("currentJob", JSON.stringify(res.data));
       setCreatingJob(defaultJob)
       setUpdated(false)
       navigate(ROUTES.JOB_CANDIDATES_ADD);
@@ -60,16 +61,35 @@ const JobsProvider = ({ children }) => {
     }
   }
 
+  const random = (min, max) => {
+    return Math.round(min + Math.random() * (max - min))
+  }
+
   // Adiciona um ou mais candidatos a uma vaga
   const addCandidates = async () => {
     let currentJob = JSON.parse(localStorage.getItem("currentJob"));
     let candidates = JSON.parse(localStorage.getItem("selectedCandidates"))
     await candidates.map(async (candidate) => {
+      const saved = Math.random() < 0.5;
+      const reqs = new Array(4).fill(0).map(_ => random(0, 4));
+      const note = random(5, 10);
+      console.log(candidate.name, reqs);
       try {
         api.defaults.headers.authorization = `Bearer ${token}`;
         const res = await api.post(
           `users/${user.data.id}/vagas/${currentJob.id}/candidates`,
-          {candidateId: candidate.id}
+          {
+            candidateId: candidate.id,
+            requisites: saved ? {
+              paciente: reqs[0],
+              sociavel: reqs[1],
+              vigilante: reqs[2],
+              independente: reqs[3]
+            } : null,
+            quizStatus: saved ? "Feito" : "Pendente",
+            quizNote: saved ? note : null,
+            interviewed: saved
+          }
         );
         console.log(`Added Candidate ${candidate.id} Successfully:`, res.data);
       } catch (error) {
@@ -94,6 +114,8 @@ const JobsProvider = ({ children }) => {
   const listCandidates = async () => {
     try {
       let currentJob = JSON.parse(localStorage.getItem("currentJob"));
+
+      console.log(currentJob)
 
       api.defaults.headers.authorization = `Bearer ${token}`;
       const result = await api.get(
