@@ -13,8 +13,8 @@ const ThirdStep = () => {
         <div className="area-register-confirm">
           <h3 className='component-title'>Informações gerais</h3>
           <CardItem
-            title={currentJob.title}
-            description={currentJob.description}
+            title={`Título: ${currentJob.title}`}
+            description={`Descrição: ${currentJob.description}`}
           />
           <h3 className='component-title'>Requisitos</h3>
           <CustomSlider values={currentJob.requisites} />

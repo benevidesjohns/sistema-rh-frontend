@@ -43,11 +43,6 @@ const JobsProvider = ({ children }) => {
     };
     setCreatingJob(updatedJob);
     localStorage.setItem('job', JSON.stringify(updatedJob));
-    console.log("Update:", {
-      title: updatedJob.title,
-      desc: updatedJob.description,
-      reqs: values ? values.toString() : Object.values(requisites).toString()
-    })
   }
 
   // Finalização do processo de criação da vaga
@@ -65,6 +60,26 @@ const JobsProvider = ({ children }) => {
     }
   }
 
+  // Adiciona um ou mais candidatos a uma vaga
+  const addCandidates = async () => {
+    let currentJob = JSON.parse(localStorage.getItem("currentJob"));
+    let candidates = JSON.parse(localStorage.getItem("selectedCandidates"))
+    await candidates.map(async (candidate) => {
+      try {
+        api.defaults.headers.authorization = `Bearer ${token}`;
+        const res = await api.post(
+          `users/${user.data.id}/vagas/${currentJob.id}/candidates`,
+          {candidateId: candidate.id}
+        );
+        console.log(`Added Candidate ${candidate.id} Successfully:`, res.data);
+      } catch (error) {
+        console.error("Error:", error.response.data)
+      }
+    })
+    localStorage.removeItem('selectedCandidates');
+    navigate(ROUTES.JOB_CANDIDATES);
+  }
+
   // Listagem das vagas cadastradas
   const list = async () => {
     try {
@@ -79,43 +94,13 @@ const JobsProvider = ({ children }) => {
   const listCandidates = async () => {
     try {
       let currentJob = JSON.parse(localStorage.getItem("currentJob"));
-      api.defaults.headers.authorization = `Bearer ${token}`;
 
-      const resJobCandidates = await api.get(
+      api.defaults.headers.authorization = `Bearer ${token}`;
+      const result = await api.get(
         `users/${user.data.id}/vagas/${currentJob.id}/candidates`
       );
 
-      const resCandidates = await api.get(
-        `users/${user.data.id}/candidates`
-      );
-
-      const candidatesId = resJobCandidates.data.map(c => c.candidateId)
-
-      let result = []
-      resCandidates.data.map((candidate) => {
-        const index = candidatesId.indexOf(candidate.id)
-        if (index > -1) {
-          const {
-            interviewed,
-            quizNote,
-            quizStatus,
-            requisites
-          } = resJobCandidates.data[index]
-
-          result.push({
-            interviewed: interviewed,
-            quizNote: quizNote,
-            quizStatus: quizStatus,
-            requisites: requisites,
-            id: candidate.id,
-            email: candidate.email,
-            name: candidate.name,
-            phone: candidate.phone,
-          })
-        }
-      })
-
-      setCandidates(result);
+      setCandidates(result.data);
     } catch (error) {
       console.error("Error:", error.response.data)
     }
@@ -128,6 +113,7 @@ const JobsProvider = ({ children }) => {
         candidates,
         creatingJob,
         updated,
+        addCandidates,
         setUpdated,
         updateCurrentJob,
         listCandidates,

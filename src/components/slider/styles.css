@@ -32,7 +32,7 @@
   width: 100%;
 }
 
-/* Remove o preenchimento do slider */
+/* Ajustes internos no slider */
 .rangeslider-horizontal .rangeslider__fill {
   background-color: #e6e6e6;
 }
@@ -64,4 +64,17 @@
   border-radius: 50%;
   background-color: #10B981;
   box-shadow: 0 1px 3px rgb(0 0 0 / 40%) inset, 0 -1px 3px rgb(0 0 0 / 40%) inset;
+}
+
+/* Slider sobrescrito (Candidate Slider) */
+.candidate-slider .rangeslider{
+  position: relative;
+  height: 0;
+  left: 0;
+  right: 0;
+  bottom: 26px;
+}
+
+.candidate-slider .rangeslider-horizontal .rangeslider__handle:after {
+  background-color: #991B1B;
 }

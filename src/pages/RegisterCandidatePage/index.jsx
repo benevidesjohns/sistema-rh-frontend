@@ -62,7 +62,7 @@ const RegisterCandidatePage = () => {
                   event={() => navigate(ROUTES.DASHBOARD)}
                   isCancel={true}
                 />
-                <Button label='Salvar' event={submit} />
+                <Button label='Cadastrar' event={submit} />
               </div>
             </div>
           </div>

@@ -19,8 +19,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content: center;
+  gap: 20px;
 }
 
 .opening-date-job {

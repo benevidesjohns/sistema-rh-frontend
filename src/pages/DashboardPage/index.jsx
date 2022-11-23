@@ -8,7 +8,7 @@ const DashboardPage = () => {
       <h1 className="title center page-title">Dashboard</h1>
       <div className="content">
         <div className="grid">
-          <Card title='Atividades Recentes' showList={false} />
+          <Card title='Vagas Recentes' showList={false} />
           <Card title='Avaliações Pendentes' />
           <Card title='Finalizados Recentemente' />
           <Card title='Finalizados Recentemente' />

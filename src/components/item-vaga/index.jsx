@@ -22,6 +22,7 @@ const ItemVaga = ({ job }) => {
 
   const showJobCandidates = () => {
     localStorage.setItem("currentJob", JSON.stringify(job));
+    localStorage.removeItem("currentCandidate");
     navigate(ROUTES.JOB_CANDIDATES);
   }
 

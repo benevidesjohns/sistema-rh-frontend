@@ -74,11 +74,13 @@ const CandidatesPage = () => {
           ?
           !loading && <CandidatesList />
           :
-          !loading && <EmptyPage
+          !loading && <div className="area-empty-table">
+            <EmptyPage
             title="Nenhum Candidato Cadastrado"
             label="Cadastrar Candidato"
             path={ROUTES.CREATE_CANDIDATE}
           />
+          </div>
 
       }</div>
     </section>

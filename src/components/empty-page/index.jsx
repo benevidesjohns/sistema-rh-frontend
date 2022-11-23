@@ -6,7 +6,7 @@ const EmptyPage = ({ title, label, path }) => {
 
   return (
     <div className='column c-center center gap'>
-      <h1 className='title center section-title'>{title}</h1>
+      <h1 className='title center component-title'>{title}</h1>
       <div className="row center">
         {label && <Button
           label={label}

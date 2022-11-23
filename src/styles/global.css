@@ -70,6 +70,16 @@ body {
   gap: 10px;
 }
 
+/* width - 800px */
+.w800 {
+  width: 800px;
+}
+
+/* width - 1200px */
+.w1200 {
+  width: 1200px;
+}
+
 /* Icones */
 .icon {
   display: flex;
